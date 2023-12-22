@@ -1,0 +1,45 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid #C4C4C4;
+  height: 80px;
+  align-items: center;
+  padding: 0 50px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.navigation__logo {
+    cursor: pointer;
+}
+
+.navigation__right {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation__home-link {
+    color: #FFF;
+    cursor: pointer;
+    height: 100%;
+    border-bottom: 2px solid white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navigation__sign-in-button {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: transparent;
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 30px;
+    width: 175px;
+    height: 48px;
+    font-size: 18px;
+}

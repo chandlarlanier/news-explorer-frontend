@@ -1,0 +1,30 @@
+.header {
+  height: 576px;
+  width: 100%;
+  background-image: url("../../images/header_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 90px;
+  box-sizing: border-box;
+}
+
+.header__text {
+    width: 608px;
+}
+
+.header__title {
+    color: #FFF;
+    font-size: 60px;
+    line-height: 64px;
+    margin-top: 0;
+}
+
+.header__description {
+    color: #FFF;
+    font-size: 18px;
+    line-height: 24px;
+}

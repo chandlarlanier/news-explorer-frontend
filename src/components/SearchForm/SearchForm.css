@@ -1,0 +1,30 @@
+.search-form {
+    position: relative;
+}
+
+.search-form__text-input {
+    font-size: 16px;
+    line-height: 22px;
+    border: 1px solid gray;
+    border-radius: 40px;
+    width: 608px;
+    height: 64px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #D1D2D6;
+}
+
+.search-form__submit-button {
+    background-color: #2F71E5;
+    color: #FFF;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 40px;
+    width: 168px;
+    height: 64px;
+    position: absolute;
+    cursor: pointer;
+    right: 0px;
+}
