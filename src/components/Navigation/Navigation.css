@@ -32,6 +32,32 @@
     font-size: 18px;
 }
 
+.navigation__profile-link {
+    cursor: pointer;
+    color: #B6BCBF;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.navigation__sign-out-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #FFF;
+    width: 112px;
+    height: 48px;
+    border: 1px solid #FFF;
+    border-radius: 30px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .navigation__sign-in-button {
     cursor: pointer;
     font-weight: bold;
@@ -42,4 +68,7 @@
     width: 175px;
     height: 48px;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 0;
 }
