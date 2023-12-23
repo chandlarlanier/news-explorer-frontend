@@ -1,0 +1,108 @@
+.popup-with-form {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-with-form__content {
+    background-color: #FFF;
+    width: 430px;
+    border-radius: 10px;
+    padding: 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.popup-with-form__close-button {
+    position: absolute;
+    padding: 0;
+    top: -35px;
+    right: -35px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.popup-with-form__title {
+    margin-top: 0;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 900;
+    color: #1A1B22;
+}
+
+.popup-with-form__formfield {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-with-form__label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #2F71E5;
+    font-size: 12px;
+    line-height: 14.5px;
+    margin-bottom: 30px;
+    gap: 2px;
+}
+
+.popup-with-form__input {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.popup-with-form__submit-button {
+    background-color: #2F71E5;
+    border: none;
+    color: #FFF;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+    height: 64px;
+    width: 100%;
+    border-radius: 50px;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup-with-form__or-button-container {
+    display: flex;
+    gap: 5px;
+    color: #1A1B22;
+    font-size: 14px;
+    line-height: 17px;
+    align-items: center;
+    height: 15px;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.popup-with-form__or-button-span {
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+    height: 100%;
+}
+
+.popup-with-form__or-button {
+    color: #2F71E5;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+}

@@ -2,7 +2,7 @@
 import "./Navigation.css";
 import logo from "../../images/logo.svg";
 
-function Navigation() {
+function Navigation({openPopup}) {
   return (
     <div className="navigation">
       <div className="navigation__left">
@@ -14,7 +14,7 @@ function Navigation() {
         {/* <Link to="/"> */}
             <div className='navigation__home-link'>Home</div>
         {/* </Link> */}
-        <button className='navigation__sign-in-button'>Sign in</button>
+        <button className='navigation__sign-in-button' onClick={() => openPopup('sign-in')}>Sign in</button>
       </div>
     </div>
   );
