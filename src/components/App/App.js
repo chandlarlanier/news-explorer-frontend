@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="app">
       {/* <Main openPopup={openPopup} isLoggedIn={false}/> */}
-      <SavedNews />
+      <SavedNews isLoggedIn={true}/>
       {activePopup === "sign-in" && (
         <SignInPopup closePopup={closePopup} openPopup={openPopup}/>
       )}

@@ -1,0 +1,29 @@
+.saved-news-header__info {
+    padding: 20px 50px;
+    width: 530px;
+}
+
+
+.saved-news-header__text {
+    color: rgba(26, 27, 35, 0.5);
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.saved-news-header__title {
+    font-size: 40px;
+    line-height: 46px;
+    color: #1A1B22;
+    font-weight: 400;
+}
+
+.saved-news-header__keywords {
+    font-size: 18px;
+    line-height: 24px;
+    color: #1A1B22;
+    font-weight: 400;
+}
+
+.saved-news-header__keywords-span {
+    font-weight: 700;
+}

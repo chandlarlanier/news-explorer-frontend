@@ -1,10 +1,10 @@
 import "./SavedNews.css";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 
-function SavedNews() {
+function SavedNews({isLoggedIn}) {
   return (
     <div className="saved-news">
-      <SavedNewsHeader />
+      <SavedNewsHeader isLoggedIn={isLoggedIn}/>
     </div>
   );
 }
