@@ -11,6 +11,17 @@
 
 .navigation__logo {
     cursor: pointer;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+}
+
+.navigation__logo_home {
+    color: #FFF;
+}
+
+.navigation__logo_saved-news {
+    color: #1A1B22;
 }
 
 .navigation__right {
@@ -21,10 +32,8 @@
 }
 
 .navigation__home-link {
-    color: #FFF;
     cursor: pointer;
     height: 100%;
-    border-bottom: 2px solid white;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -32,12 +41,32 @@
     font-size: 18px;
 }
 
+.navigation__home-link_home {
+    border-bottom: 2px solid white;
+    color: #FFF;
+}
+
+.navigation__home-link_saved-news {
+    color: #1A1B22;
+}
+
 .navigation__profile-link {
     cursor: pointer;
-    color: #B6BCBF;
     font-size: 18px;
     line-height: 24px;
-    font-weight: 500;
+    font-weight: bold;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navigation__profile-link_home {
+    color: #B6BCBF;
+}
+
+.navigation__profile-link_saved-news {
+    color: #1A1B22;
+    border-bottom: 2px solid #1A1B22;
 }
 
 .navigation__sign-out-button {
@@ -47,15 +76,23 @@
     padding: 0 20px;
     box-sizing: border-box;
     background-color: transparent;
-    color: #FFF;
     width: 112px;
     height: 48px;
-    border: 1px solid #FFF;
     border-radius: 30px;
     font-size: 18px;
     line-height: 24px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.navigation__sign-out-button_home {
+    color: #FFF;
+    border: 1px solid #FFF;
+}
+
+.navigation__sign-out-button_saved-news {
+    color: #1A1B22;
+    border: 1px solid #1A1B22;
 }
 
 .navigation__sign-in-button {
@@ -70,5 +107,6 @@
     font-size: 18px;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0;
 }

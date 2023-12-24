@@ -1,5 +1,6 @@
 import "./App.css";
 import Main from "../Main/Main";
+import SavedNews from "../SavedNews/SavedNews";
 import SignInPopup from "../SignInPopup/SignInPopup";
 import SignUpPopup from "../SignUpPopup/SignUpPopup";
 import { useState } from "react";
@@ -17,7 +18,8 @@ function App() {
 
   return (
     <div className="app">
-      <Main openPopup={openPopup}/>
+      {/* <Main openPopup={openPopup} isLoggedIn={false}/> */}
+      <SavedNews />
       {activePopup === "sign-in" && (
         <SignInPopup closePopup={closePopup} openPopup={openPopup}/>
       )}

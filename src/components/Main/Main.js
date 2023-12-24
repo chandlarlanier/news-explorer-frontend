@@ -3,10 +3,10 @@ import Header from "../Header/Header";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
 
-function Main({openPopup}) {
+function Main({openPopup, isLoggedIn}) {
   return (
     <div className="main">
-      <Header openPopup={openPopup}/>
+      <Header openPopup={openPopup} isLoggedIn={isLoggedIn}/>
       <About />
       <Footer />
     </div>
