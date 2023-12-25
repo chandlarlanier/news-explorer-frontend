@@ -4,12 +4,80 @@
     background-color: #FFF;
     border-radius: 15px;
     overflow: hidden;
+    position: relative;
 }
 
 .news-card__image-container {
     height: 272px;
     overflow: hidden;
     position: relative;
+    z-index: 2;
+}
+
+.news-card__image {
+    z-index: 3;
+}
+
+.news-card__keyword-container {
+    z-index: 5;
+    position: absolute;
+    border-radius: 7px;
+    background-color: #FFF;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 20px;
+    left: 20px;
+    padding: 0 20px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.news-card__delete-message {
+    background-color: #FFF;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    z-index: 3;
+    width: 159px;
+    left: 177px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    color: #000;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: bold;
+}
+
+.news-card__delete-button {
+    background-color: #FFF;
+    height: 40px;
+    width: 40px;
+    z-index: 100;
+    position: absolute;
+    background-image: url('../../images/delete-icon-gray.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    right: 20px;
+    top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.news-card__delete-button_hover {
+    background: url('../../images/delete-icon-black.svg');
+    background-color: #FFF;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .news-card__info {
