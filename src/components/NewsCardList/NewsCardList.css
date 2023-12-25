@@ -1,0 +1,16 @@
+.news-card-list {
+    background-color: #F5F6F7;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    min-width: 1336px;
+    box-sizing: border-box;
+}
+
+.news-card-list__cards {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 1236px;
+    min-width: 1236px;
+}
