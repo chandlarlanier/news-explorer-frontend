@@ -7,7 +7,8 @@ import { useState } from "react";
 
 function App() {
   const [activePopup, setActivePopup] = useState("");
-  const [searchIsLoading, setSearchIsLoading] = useState(true);
+  const [searchIsLoading, setSearchIsLoading] = useState(false);
+  const [searchResults, setSearchResults] = useState(false);
 
   const closePopup = () => {
     setActivePopup("");
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className="app">
-      <Main openPopup={openPopup} isLoggedIn={false} searchIsLoading={searchIsLoading}/>
+      <Main openPopup={openPopup} isLoggedIn={false} searchIsLoading={searchIsLoading} searchResults={searchResults}/>
       {/* <SavedNews isLoggedIn={true}/> */}
       {activePopup === "sign-in" && (
         <SignInPopup closePopup={closePopup} openPopup={openPopup}/>
