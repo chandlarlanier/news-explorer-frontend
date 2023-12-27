@@ -3,7 +3,7 @@
     padding: 50px;
     display: flex;
     justify-content: center;
-    min-width: 1336px;
+    
     box-sizing: border-box;
 }
 
@@ -12,5 +12,5 @@
     gap: 15px;
     flex-wrap: wrap;
     width: 1236px;
-    min-width: 1236px;
+    /* min-width: 1236px; */
 }

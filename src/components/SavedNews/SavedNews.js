@@ -7,7 +7,7 @@ function SavedNews({isLoggedIn}) {
   return (
     <div className="saved-news">
       <SavedNewsHeader isLoggedIn={isLoggedIn}/>
-      <NewsCardList />
+      <NewsCardList currentPage='saved-news'/>
       <Footer />
     </div>
   );
