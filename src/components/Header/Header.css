@@ -21,10 +21,14 @@
     font-size: 60px;
     line-height: 64px;
     margin-top: 0;
+    font-family: "RobotoSlab-Regular", 'Times New Roman', Times, serif;
+    font-weight: 400;
 }
 
 .header__description {
     color: #FFF;
     font-size: 18px;
     line-height: 24px;
+    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
+    font-weight: 400;
 }

@@ -12,6 +12,8 @@
     padding: 0 20px;
     box-sizing: border-box;
     background-color: #FFF;
+    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
+    font-weight: 400;
 }
 
 .search-form__submit-button {
@@ -19,7 +21,8 @@
     color: #FFF;
     font-size: 18px;
     line-height: 24px;
-    font-weight: bold;
+    font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
+    font-weight: 500;
     border: none;
     border-radius: 40px;
     width: 168px;

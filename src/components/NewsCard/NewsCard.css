@@ -37,7 +37,8 @@
     padding: 0 20px;
     font-size: 14px;
     line-height: 24px;
-    font-weight: bold;
+    font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
+    font-weight: 500;
     color: #000;
 }
 
@@ -56,7 +57,8 @@
     color: #000;
     font-size: 12px;
     line-height: 14px;
-    font-weight: bold;
+    font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
+    font-weight: 500;
 }
 
 .news-card__delete-button {
@@ -99,6 +101,7 @@
     left: 154px;
     color: #000;
     font-size: 12px;
+    font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
     font-weight: 500;
     line-height: 14px;
 }
@@ -132,12 +135,16 @@
     font-size: 18px;
     line-height: 24px;
     color: #B6BCBF;
+    font-family: "SourceSansPro-Regular", 'Lucida Sans', sans-serif;
+    font-weight: 400;
 }
 
 .news-card__title {
     font-size: 26px;
     line-height: 30px;
     color: #1A1B22;
+    font-family: "RobotoSlab-Regular", 'Times New Roman', Times, serif;
+    font-weight: 400;
 }
 
 .news-card__article {
@@ -147,11 +154,14 @@
     position: absolute;
     top: 120px;
     width: 352px;
+    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
+    font-weight: 400;
 }
 
 .news-card__source {
     font-size: 16px;
     line-height: 20px;
+    font-family: 'RobotoSlab-Bold', 'Times New Roman', Times, serif;
     font-weight: 700;
     color: #B6BCBF;
     position: absolute;

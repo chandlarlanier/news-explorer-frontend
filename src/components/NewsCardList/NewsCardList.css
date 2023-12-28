@@ -3,7 +3,6 @@
     padding: 50px;
     display: flex;
     justify-content: center;
-    
     box-sizing: border-box;
 }
 
@@ -11,6 +10,6 @@
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
-    width: 1236px;
-    /* min-width: 1236px; */
+    min-width: 1236px;
+    max-width: 1236px;
 }

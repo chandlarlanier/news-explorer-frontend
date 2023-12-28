@@ -18,6 +18,7 @@
 .no-search-results-message__title {
     font-size: 26px;
     line-height: 30px;
+    font-family: "RobotoSlab-Regular", 'Times New Roman', Times, serif;
     font-weight: 400;
     color: #1A1B22;
     margin: 0;
@@ -27,6 +28,7 @@
 .no-search-results-message__description {
     font-size: 18px;
     line-height: 24px;
+    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
     font-weight: 400;
     color: #B6BCBF;
     width: 250px;

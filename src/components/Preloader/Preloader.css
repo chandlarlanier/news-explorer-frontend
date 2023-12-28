@@ -31,6 +31,8 @@
     color: #B6BCBF;
     font-size: 18px;
     line-height: 24px;
+    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
+    font-weight: 400;
     position: absolute;
     top: 180px;
 }

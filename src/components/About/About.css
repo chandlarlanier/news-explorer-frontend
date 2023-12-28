@@ -21,9 +21,13 @@
     font-size: 40px;
     line-height: 46px;
     margin-bottom: 0;
+    font-family: "RobotoSlab-Regular", 'Times New Roman', Times, serif;
+    font-weight: 400;
 }
 
 .about__description {
     font-size: 18px;
     line-height: 24px;
+    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
+    font-weight: 400;
 }

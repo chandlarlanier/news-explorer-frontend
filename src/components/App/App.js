@@ -6,10 +6,10 @@ import SignUpPopup from "../SignUpPopup/SignUpPopup";
 import { useState } from "react";
 
 function App() {
-  const [activePopup, setActivePopup] = useState("");
+  const [activePopup, setActivePopup] = useState("sign-in");
   const [searchIsLoading, setSearchIsLoading] = useState(false);
-  const [searchResults, setSearchResults] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [searchResults, setSearchResults] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const closePopup = () => {
     setActivePopup("");

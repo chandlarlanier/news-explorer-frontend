@@ -16,6 +16,8 @@
     font-size: 40px;
     line-height: 46px;
     font-weight: 400;
+    font-family: "RobotoSlab-Regular", 'Times New Roman', Times, serif;
+    font-weight: 400;
 }
 
 .search-results__show-more-button {
@@ -25,7 +27,8 @@
     height: 64px;
     font-size: 18px;
     line-height: 24px;
-    font-weight: bold;
+    font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
+    font-weight: 500;
     color: #1A1B22;
     display: flex;
     justify-content: center;

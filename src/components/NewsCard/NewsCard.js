@@ -90,7 +90,7 @@ function NewsCard({ currentPage, isLoggedIn, isSaved }) {
           heads, took place on October 1, 1933, and marked the first step in the
           realization of a plan whereby the hiker will be...
         </p>
-        <p className="news-card__source">National Parks Traveler</p>
+        <p className="news-card__source">NATIONAL PARKS TRAVELER</p>
       </div>
     </div>
   );

@@ -13,7 +13,9 @@
     cursor: pointer;
     font-size: 20px;
     line-height: 24px;
+    font-family: 'RobotoSlab-Bold', 'Times New Roman', Times, serif;
     font-weight: 700;
+    margin: 0;
 }
 
 .navigation__logo_home {
@@ -39,6 +41,9 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 18px;
+    font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    box-sizing: content-box;
 }
 
 .navigation__home-link_home {
@@ -54,7 +59,8 @@
     cursor: pointer;
     font-size: 18px;
     line-height: 24px;
-    font-weight: bold;
+    font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
+    font-weight: 500;
     height: 100%;
     display: flex;
     align-items: center;
@@ -81,7 +87,8 @@
     border-radius: 30px;
     font-size: 18px;
     line-height: 24px;
-    font-weight: bold;
+    font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
+    font-weight: 500;
     cursor: pointer;
 }
 
