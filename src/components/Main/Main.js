@@ -6,13 +6,13 @@ import SearchResults from "../SearchResults/SearchResults";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
 
-function Main({openPopup, isLoggedIn, searchIsLoading, searchResults}) {
+function Main({openPopup, isLoggedIn, searchIsLoading, searchResults, noResultsFound}) {
   return (
     <div className="main">
       <Header openPopup={openPopup} isLoggedIn={isLoggedIn}/>
       {searchIsLoading && <Preloader />}
-      {!searchResults && <NoSearchResultsMessage />}
-      {searchResults && <SearchResults isLoggedIn={isLoggedIn}/>}
+      {noResultsFound && <NoSearchResultsMessage />}
+      {searchResults.length > 0 && <SearchResults isLoggedIn={isLoggedIn}/>}
       <About />
       <Footer />
     </div>

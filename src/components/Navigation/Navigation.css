@@ -16,10 +16,12 @@
     font-family: 'RobotoSlab-Bold', 'Times New Roman', Times, serif;
     font-weight: 700;
     margin: 0;
+    text-decoration: none;
 }
 
 .navigation__logo_home {
     color: #FFF;
+    
 }
 
 .navigation__logo_saved-news {
@@ -44,6 +46,7 @@
     font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
     font-weight: 500;
     box-sizing: content-box;
+    text-decoration: none;
 }
 
 .navigation__home-link_home {
@@ -64,6 +67,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .navigation__profile-link_home {
