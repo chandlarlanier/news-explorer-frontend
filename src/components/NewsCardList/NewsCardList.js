@@ -2,6 +2,7 @@ import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 
 function NewsCardList({currentPage, isLoggedIn, content}) {
+
   return (
     <div className="news-card-list">
       <div className="news-card-list__cards">
@@ -11,6 +12,15 @@ function NewsCardList({currentPage, isLoggedIn, content}) {
         <NewsCard currentPage={currentPage} isLoggedIn={isLoggedIn}/>
         <NewsCard currentPage={currentPage} isLoggedIn={isLoggedIn}/>
         <NewsCard currentPage={currentPage} isLoggedIn={isLoggedIn}/> */}
+
+
+        
+
+        {currentPage === 'main' && (
+          content.map((card) => {
+            return <NewsCard currentPage={currentPage} isLoggedIn={isLoggedIn} key={content.indexOf(card)} cardInfo={card}/>
+          })
+        )}
       </div>
     </div>
   );

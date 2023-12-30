@@ -22,6 +22,7 @@ function App() {
     return searchKeyword(keyword).then((res) => {
       console.log(res);
       const results = res.articles;
+      console.log(results[0]);
 
       if (results.length > 0) {
         setSearchResults(results);
@@ -30,15 +31,9 @@ function App() {
       } else {
         setNoResultsFound(true);
         setSearchIsLoading(false);
+        setSearchResults([]);
       }
     });
-
-    // if (results.length > 0) {
-    //   setSearchResults(results);
-    // } else {
-    //   setSearchIsLoading(false);
-    //   setNoResultsFound(true);
-    // }
   };
 
   const closePopup = () => {
