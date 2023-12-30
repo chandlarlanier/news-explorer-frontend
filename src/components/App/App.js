@@ -5,6 +5,7 @@ import SignInPopup from "../SignInPopup/SignInPopup";
 import SignUpPopup from "../SignUpPopup/SignUpPopup";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import searchKeyword from "../../utils/NewsApi";
 
 function App() {
   const [activePopup, setActivePopup] = useState("");
@@ -12,6 +13,33 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [noResultsFound, setNoResultsFound] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [savedArticles, setSavedArticles] = useState([]);
+
+  const handleSearchFormSubmit = (keyword) => {
+    setNoResultsFound(false);
+    setSearchIsLoading(true);
+
+    return searchKeyword(keyword).then((res) => {
+      console.log(res);
+      const results = res.articles;
+
+      if (results.length > 0) {
+        setSearchResults(results);
+        setNoResultsFound(false);
+        setSearchIsLoading(false);
+      } else {
+        setNoResultsFound(true);
+        setSearchIsLoading(false);
+      }
+    });
+
+    // if (results.length > 0) {
+    //   setSearchResults(results);
+    // } else {
+    //   setSearchIsLoading(false);
+    //   setNoResultsFound(true);
+    // }
+  };
 
   const closePopup = () => {
     setActivePopup("");
@@ -35,6 +63,7 @@ function App() {
                 searchIsLoading={searchIsLoading}
                 searchResults={searchResults}
                 noResultsFound={noResultsFound}
+                handleSearchFormSubmit={handleSearchFormSubmit}
               />
             }
           />

@@ -2,7 +2,7 @@ import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 import "./Header.css";
 
-function Header({openPopup, isLoggedIn}) {
+function Header({openPopup, isLoggedIn, handleSearchFormSubmit}) {
   return (
     <div className="header">
       <Navigation openPopup={openPopup} isLoggedIn={isLoggedIn} currentPage='home'/>
@@ -13,7 +13,7 @@ function Header({openPopup, isLoggedIn}) {
           account.
         </p>
       </div>
-      <SearchForm />
+      <SearchForm handleSearchFormSubmit={handleSearchFormSubmit}/>
     </div>
   );
 }
