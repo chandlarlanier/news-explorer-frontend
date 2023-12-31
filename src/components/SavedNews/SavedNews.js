@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer";
 function SavedNews({isLoggedIn, savedArticles, handleUnsaveArticle}) {
   return (
     <div className="saved-news">
-      <SavedNewsHeader isLoggedIn={isLoggedIn}/>
+      <SavedNewsHeader isLoggedIn={isLoggedIn} savedArticles={savedArticles}/>
       <NewsCardList currentPage='saved-news' content={savedArticles} savedArticles={savedArticles} handleUnsaveArticle={handleUnsaveArticle}/>
       <Footer />
     </div>

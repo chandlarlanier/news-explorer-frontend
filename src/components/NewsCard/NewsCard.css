@@ -8,6 +8,10 @@
     cursor: pointer;
 }
 
+.news-card_hidden {
+    display: none;
+}
+
 .news-card:hover {
     box-shadow: 5px 5px 10px rgba(8, 29, 45, 0.1);
 }

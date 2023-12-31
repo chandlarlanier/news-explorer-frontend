@@ -39,9 +39,10 @@ function App() {
   }
 
   const handleUnsaveArticle = (article) => {
-    const indexOfArticle = savedArticles.indexOf(article);
-    console.log(savedArticles.splice(indexOfArticle, 1));
-    setSavedArticles(savedArticles.splice(indexOfArticle, 1));
+    const newSavedArticles = savedArticles;
+    const indexOfArticle = newSavedArticles.indexOf(article);
+    newSavedArticles.splice(indexOfArticle, 1);
+    setSavedArticles(newSavedArticles);
   }
 
   const closePopup = () => {

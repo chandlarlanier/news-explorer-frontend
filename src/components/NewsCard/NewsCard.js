@@ -4,17 +4,27 @@ import deleteIconGray from "../../images/delete-icon-gray.svg";
 import saveIconGray from "../../images/save-icon-gray.svg";
 import saveIconBlack from "../../images/save-icon-black.svg";
 import saveIconFill from "../../images/save-icon-fill.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function NewsCard({ currentPage, isLoggedIn, cardInfo, handleSaveArticle, handleUnsaveArticle, savedArticles }) {
+function NewsCard({
+  currentPage,
+  isLoggedIn,
+  cardInfo,
+  handleSaveArticle,
+  handleUnsaveArticle,
+  savedArticles,
+}) {
   const [deleteHoverActive, setDeleteHoverActive] = useState(false);
   const [saveHoverActive, setSaveHoverActive] = useState(false);
+  const [showCard, setShowCard] = useState(true);
 
   const articleIsInSavedArticlesArray = savedArticles.some((item) => {
     return item.publishedAt === cardInfo.publishedAt;
-  })
+  });
 
-  const [articleIsSaved, setArticleIsSaved] = useState(articleIsInSavedArticlesArray);
+  const [articleIsSaved, setArticleIsSaved] = useState(
+    articleIsInSavedArticlesArray
+  );
 
   const handleClickSave = () => {
     if (articleIsSaved) {
@@ -24,10 +34,15 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, handleSaveArticle, handle
       handleSaveArticle(cardInfo);
       setArticleIsSaved(true);
     }
-  }
+  };
+
+  const handleClickDelete = () => {
+    handleUnsaveArticle(cardInfo);
+    setShowCard(false);
+  };
 
   return (
-    <div className="news-card">
+    <div className={`${showCard ? 'news-card' : 'news-card_hidden'}`}>
       {/* Displays when user is logged in and on saved news page */}
       {currentPage === "saved-news" && (
         <div className="news-card__keyword-container">
@@ -46,7 +61,7 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, handleSaveArticle, handle
           }`}
           onMouseEnter={() => setDeleteHoverActive(true)}
           onMouseLeave={() => setDeleteHoverActive(false)}
-          onClick={handleClickSave}
+          onClick={handleClickDelete}
         ></button>
       )}
 
@@ -100,12 +115,8 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, handleSaveArticle, handle
       </div>
       <div className="news-card__info">
         <p className="news-card__date">{cardInfo.publishedAt}</p>
-        <h3 className="news-card__title">
-          {cardInfo.title}
-        </h3>
-        <p className="news-card__article">
-          {cardInfo.content}
-        </p>
+        <h3 className="news-card__title">{cardInfo.title}</h3>
+        <p className="news-card__article">{cardInfo.content}</p>
         <p className="news-card__source">{cardInfo.source.name}</p>
       </div>
     </div>
