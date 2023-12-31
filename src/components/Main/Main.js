@@ -7,7 +7,7 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 
-function Main({openPopup, isLoggedIn, searchIsLoading, searchResults, noResultsFound, handleSearchFormSubmit, handleSaveArticle}) {
+function Main({openPopup, isLoggedIn, searchIsLoading, searchResults, noResultsFound, handleSearchFormSubmit, handleSaveArticle, handleUnsaveArticle, savedArticles}) {
   // const [renderedSearchResults, setRenderedSearchResults] = useState(searchResults);
 
   // useEffect(() => {setRenderedSearchResults(searchResults)}, [searchResults])
@@ -17,7 +17,7 @@ function Main({openPopup, isLoggedIn, searchIsLoading, searchResults, noResultsF
       <Header openPopup={openPopup} isLoggedIn={isLoggedIn} handleSearchFormSubmit={handleSearchFormSubmit}/>
       {searchIsLoading && <Preloader />}
       {noResultsFound && <NoSearchResultsMessage />}
-      {searchResults.length > 0 && <SearchResults searchResults={searchResults} isLoggedIn={isLoggedIn} handleSaveArticle={handleSaveArticle}/>}
+      {searchResults.length > 0 && <SearchResults searchResults={searchResults} isLoggedIn={isLoggedIn} handleSaveArticle={handleSaveArticle} handleUnsaveArticle={handleUnsaveArticle} savedArticles={savedArticles}/>}
       <About />
       <Footer />
     </div>

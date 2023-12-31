@@ -38,6 +38,12 @@ function App() {
     setSavedArticles([...savedArticles, article]);
   }
 
+  const handleUnsaveArticle = (article) => {
+    const indexOfArticle = savedArticles.indexOf(article);
+    console.log(savedArticles.splice(indexOfArticle, 1));
+    setSavedArticles(savedArticles.splice(indexOfArticle, 1));
+  }
+
   const closePopup = () => {
     setActivePopup("");
   };
@@ -62,10 +68,12 @@ function App() {
                 noResultsFound={noResultsFound}
                 handleSearchFormSubmit={handleSearchFormSubmit}
                 handleSaveArticle={handleSaveArticle}
+                handleUnsaveArticle={handleUnsaveArticle}
+                savedArticles={savedArticles}
               />
             }
           />
-          <Route path="/saved-news" element={<SavedNews isLoggedIn={true} savedArticles={savedArticles}/>} />
+          <Route path="/saved-news" element={<SavedNews isLoggedIn={true} savedArticles={savedArticles} handleUnsaveArticle={handleUnsaveArticle}/>} />
         </Routes>
         {activePopup === "sign-in" && (
           <SignInPopup closePopup={closePopup} openPopup={openPopup} />

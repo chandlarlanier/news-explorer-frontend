@@ -6,20 +6,24 @@ import saveIconBlack from "../../images/save-icon-black.svg";
 import saveIconFill from "../../images/save-icon-fill.svg";
 import { useState } from "react";
 
-function NewsCard({ currentPage, isLoggedIn, isSaved, cardInfo, handleSaveArticle }) {
+function NewsCard({ currentPage, isLoggedIn, cardInfo, handleSaveArticle, handleUnsaveArticle, savedArticles }) {
   const [deleteHoverActive, setDeleteHoverActive] = useState(false);
   const [saveHoverActive, setSaveHoverActive] = useState(false);
-  const [articleIsSaved, setArticleIsSaved] = useState(false);
+
+  const articleIsInSavedArticlesArray = savedArticles.some((item) => {
+    return item.publishedAt === cardInfo.publishedAt;
+  })
+
+  const [articleIsSaved, setArticleIsSaved] = useState(articleIsInSavedArticlesArray);
 
   const handleClickSave = () => {
-    handleSaveArticle(cardInfo);
-    setArticleIsSaved(true);
-  }
-
-
-  // Put save/unsave functionality into same function ?
-  const handleClickUnsave = () => {
-    
+    if (articleIsSaved) {
+      handleUnsaveArticle(cardInfo);
+      setArticleIsSaved(false);
+    } else {
+      handleSaveArticle(cardInfo);
+      setArticleIsSaved(true);
+    }
   }
 
   return (
@@ -42,6 +46,7 @@ function NewsCard({ currentPage, isLoggedIn, isSaved, cardInfo, handleSaveArticl
           }`}
           onMouseEnter={() => setDeleteHoverActive(true)}
           onMouseLeave={() => setDeleteHoverActive(false)}
+          onClick={handleClickSave}
         ></button>
       )}
 
