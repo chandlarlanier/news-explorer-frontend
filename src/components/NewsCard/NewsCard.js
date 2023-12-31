@@ -6,9 +6,21 @@ import saveIconBlack from "../../images/save-icon-black.svg";
 import saveIconFill from "../../images/save-icon-fill.svg";
 import { useState } from "react";
 
-function NewsCard({ currentPage, isLoggedIn, isSaved, cardInfo }) {
+function NewsCard({ currentPage, isLoggedIn, isSaved, cardInfo, handleSaveArticle }) {
   const [deleteHoverActive, setDeleteHoverActive] = useState(false);
   const [saveHoverActive, setSaveHoverActive] = useState(false);
+  const [articleIsSaved, setArticleIsSaved] = useState(false);
+
+  const handleClickSave = () => {
+    handleSaveArticle(cardInfo);
+    setArticleIsSaved(true);
+  }
+
+
+  // Put save/unsave functionality into same function ?
+  const handleClickUnsave = () => {
+    
+  }
 
   return (
     <div className="news-card">
@@ -59,10 +71,11 @@ function NewsCard({ currentPage, isLoggedIn, isSaved, cardInfo }) {
           className="news-card__save-button"
           onMouseEnter={() => setSaveHoverActive(true)}
           onMouseLeave={() => setSaveHoverActive(false)}
+          onClick={handleClickSave}
         >
           <img
             src={
-              isSaved
+              articleIsSaved
                 ? saveIconFill
                 : saveHoverActive
                 ? saveIconBlack

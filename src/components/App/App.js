@@ -15,8 +15,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [savedArticles, setSavedArticles] = useState([]);
 
-  // useEffect(() => {}, [searchResults])
-
   const handleSearchFormSubmit = (keyword) => {
     setNoResultsFound(false);
     setSearchIsLoading(true);
@@ -35,6 +33,10 @@ function App() {
       }
     });
   };
+
+  const handleSaveArticle = (article) => {
+    setSavedArticles([...savedArticles, article]);
+  }
 
   const closePopup = () => {
     setActivePopup("");
@@ -59,10 +61,11 @@ function App() {
                 searchResults={searchResults}
                 noResultsFound={noResultsFound}
                 handleSearchFormSubmit={handleSearchFormSubmit}
+                handleSaveArticle={handleSaveArticle}
               />
             }
           />
-          <Route path="/saved-news" element={<SavedNews isLoggedIn={true} />} />
+          <Route path="/saved-news" element={<SavedNews isLoggedIn={true} savedArticles={savedArticles}/>} />
         </Routes>
         {activePopup === "sign-in" && (
           <SignInPopup closePopup={closePopup} openPopup={openPopup} />
