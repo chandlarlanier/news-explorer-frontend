@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 function SearchResults({isLoggedIn, searchResults}) {
  const [numberOfCardsShown, setNumberOfCardsShown] = useState(3);
  const [limitedSearchResults, setLimitedSearchResults] = useState(searchResults.slice(0, numberOfCardsShown));
+ console.log(searchResults);
 
  useEffect(() => {setLimitedSearchResults(searchResults.slice(0, numberOfCardsShown))}, [numberOfCardsShown]);
 

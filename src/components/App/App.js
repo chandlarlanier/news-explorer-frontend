@@ -3,7 +3,7 @@ import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import SignInPopup from "../SignInPopup/SignInPopup";
 import SignUpPopup from "../SignUpPopup/SignUpPopup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import searchKeyword from "../../utils/NewsApi";
 
@@ -15,23 +15,23 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [savedArticles, setSavedArticles] = useState([]);
 
+  // useEffect(() => {}, [searchResults])
+
   const handleSearchFormSubmit = (keyword) => {
     setNoResultsFound(false);
     setSearchIsLoading(true);
+    setSearchResults([]);
 
     return searchKeyword(keyword).then((res) => {
-      console.log(res);
       const results = res.articles;
-      console.log(results[0]);
+      setSearchResults(results);
 
       if (results.length > 0) {
-        setSearchResults(results);
         setNoResultsFound(false);
         setSearchIsLoading(false);
       } else {
         setNoResultsFound(true);
         setSearchIsLoading(false);
-        setSearchResults([]);
       }
     });
   };

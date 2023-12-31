@@ -5,8 +5,13 @@ import NoSearchResultsMessage from "../NoSearchResultsMessage/NoSearchResultsMes
 import SearchResults from "../SearchResults/SearchResults";
 import About from "../About/About";
 import Footer from "../Footer/Footer";
+import { useEffect, useState } from "react";
 
 function Main({openPopup, isLoggedIn, searchIsLoading, searchResults, noResultsFound, handleSearchFormSubmit}) {
+  // const [renderedSearchResults, setRenderedSearchResults] = useState(searchResults);
+
+  // useEffect(() => {setRenderedSearchResults(searchResults)}, [searchResults])
+
   return (
     <div className="main">
       <Header openPopup={openPopup} isLoggedIn={isLoggedIn} handleSearchFormSubmit={handleSearchFormSubmit}/>
