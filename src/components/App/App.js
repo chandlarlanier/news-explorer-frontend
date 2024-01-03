@@ -6,7 +6,6 @@ import SignUpPopup from "../SignUpPopup/SignUpPopup";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import searchKeyword from "../../utils/NewsApi";
-// import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 import { SavedArticlesProvider } from "../../contexts/SavedArticlesContext";
 
 function App() {
@@ -15,11 +14,12 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [noResultsFound, setNoResultsFound] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  // const [savedArticles, setSavedArticles] = useState([]);
+  const [latestKeyword, setLatestKeyword] = useState("");
 
   const handleSearchFormSubmit = (keyword) => {
     setNoResultsFound(false);
     setSearchIsLoading(true);
+    setLatestKeyword(keyword);
     setSearchResults([]);
 
     return searchKeyword(keyword).then((res) => {
@@ -35,18 +35,6 @@ function App() {
       }
     });
   };
-
-  // const handleSaveArticle = (article) => {
-  //   setSavedArticles([...savedArticles, article]);
-  // };
-
-  // const handleUnsaveArticle = (article) => {
-  //   const newSavedArticles = savedArticles;
-  //   const indexOfArticle = newSavedArticles.indexOf(article);
-  //   newSavedArticles.splice(indexOfArticle, 1);
-  //   setSavedArticles(newSavedArticles);
-  //   console.log(savedArticles.length);
-  // };
 
   const closePopup = () => {
     setActivePopup("");
@@ -72,9 +60,7 @@ function App() {
                   searchResults={searchResults}
                   noResultsFound={noResultsFound}
                   handleSearchFormSubmit={handleSearchFormSubmit}
-                  // handleSaveArticle={handleSaveArticle}
-                  // handleUnsaveArticle={handleUnsaveArticle}
-                  // savedArticles={savedArticles}
+                  latestKeyword={latestKeyword}
                 />
               }
             />
@@ -83,8 +69,6 @@ function App() {
               element={
                 <SavedNews
                   isLoggedIn={true}
-                  // savedArticles={savedArticles}
-                  // handleUnsaveArticle={handleUnsaveArticle}
                 />
               }
             />

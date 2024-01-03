@@ -1,12 +1,22 @@
 import "./SavedNewsHeader.css";
 import Navigation from "../Navigation/Navigation";
-import { useState, useEffect, useContext } from "react";
 import { useSavedArticles } from "../../contexts/SavedArticlesContext";
-// import SavedArticlesContext from "../../contexts/SavedArticlesContext";
 
 function SavedNewsHeader({ isLoggedIn }) {
   const { savedArticles } = useSavedArticles();
+  const keywords = savedArticles.map((article) => article.keyword);
+  const uniqueKeywords = [...new Set(keywords)].map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
 
+  const keywordText = (keywords) => {
+    if (keywords.length <= 1) {
+      return keywords
+    }
+    if (keywords.length == 2) {
+      return `${keywords[0]} and ${keywords[1]}`
+    }
+    return `${keywords[0]}, ${keywords[1]}, and ${keywords.length - 2} other`
+  }
+  
   return (
     <div className="saved-news-header">
       <Navigation currentPage="saved-news" isLoggedIn={isLoggedIn} />
@@ -17,9 +27,9 @@ function SavedNewsHeader({ isLoggedIn }) {
           {savedArticles.length == 1 ? "article" : "articles"}
         </h2>
         <p className="saved-news-header__keywords">
-          By keywords:{" "}
+          By {uniqueKeywords.length == 1 ? "keyword" : "keywords"}:{" "}
           <span className="saved-news-header__keywords-span">
-            Nature, Yellowstone, and 2 others
+            {keywordText(uniqueKeywords)}
           </span>
         </p>
       </div>

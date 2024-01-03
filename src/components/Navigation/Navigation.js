@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "./Navigation.css";
-import logo from "../../images/logo.svg";
 import signOutIconWhite from "../../images/sign-out-icon_white.svg";
 import signOutIconBlack from "../../images/sign-out-icon_black.svg";
 

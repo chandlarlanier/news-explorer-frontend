@@ -7,7 +7,7 @@ import saveIconFill from "../../images/save-icon-fill.svg";
 import { useState } from "react";
 import { useSavedArticles } from "../../contexts/SavedArticlesContext";
 
-function NewsCard({ currentPage, isLoggedIn, cardInfo }) {
+function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
   const [deleteHoverActive, setDeleteHoverActive] = useState(false);
   const [saveHoverActive, setSaveHoverActive] = useState(false);
   const { savedArticles, saveArticle, removeArticle } = useSavedArticles();
@@ -20,7 +20,17 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo }) {
     ) {
       removeArticle(cardInfo);
     } else {
-      saveArticle(cardInfo);
+      const card = {
+        keyword: latestKeyword,
+        publishedAt: cardInfo.publishedAt,
+        urlToImage: cardInfo.urlToImage,
+        title: cardInfo.title,
+        content: cardInfo.content,
+        source: {
+          name: cardInfo.source.name
+        }
+      }
+      saveArticle(card);
     }
   };
 
