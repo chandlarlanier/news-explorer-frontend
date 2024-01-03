@@ -21,10 +21,13 @@
     overflow: hidden;
     position: relative;
     z-index: 2;
+    object-fit: contain;
 }
 
 .news-card__image {
     z-index: 3;
+    height: 100%;
+    width: 100%;
 }
 
 .news-card__keyword-container {

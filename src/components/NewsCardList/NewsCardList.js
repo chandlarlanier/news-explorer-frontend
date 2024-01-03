@@ -1,7 +1,7 @@
 import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList({currentPage, isLoggedIn, content, handleSaveArticle, handleUnsaveArticle, savedArticles}) {
+function NewsCardList({currentPage, isLoggedIn, content}) {
 
   return (
     <div className="news-card-list">
@@ -9,14 +9,14 @@ function NewsCardList({currentPage, isLoggedIn, content, handleSaveArticle, hand
 
         {currentPage==='saved-news' && (
           content.map((card) => {
-            return <NewsCard currentPage={currentPage} isLoggedIn={isLoggedIn} key={content.indexOf(card)} cardInfo={card} handleUnsaveArticle={handleUnsaveArticle} savedArticles={savedArticles}/>
+            return <NewsCard currentPage={currentPage} isLoggedIn={isLoggedIn} key={content.indexOf(card)} cardInfo={card}/>
           })
         )}
         
 
         {currentPage === 'main' && (
           content.map((card) => {
-            return <NewsCard currentPage={currentPage} isLoggedIn={isLoggedIn} key={content.indexOf(card)} cardInfo={card} handleSaveArticle={handleSaveArticle} handleUnsaveArticle={handleUnsaveArticle} savedArticles={savedArticles}/>
+            return <NewsCard currentPage={currentPage} isLoggedIn={isLoggedIn} key={content.indexOf(card)} cardInfo={card}/>
           })
         )}
       </div>

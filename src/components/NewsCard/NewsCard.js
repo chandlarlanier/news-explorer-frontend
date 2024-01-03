@@ -4,45 +4,56 @@ import deleteIconGray from "../../images/delete-icon-gray.svg";
 import saveIconGray from "../../images/save-icon-gray.svg";
 import saveIconBlack from "../../images/save-icon-black.svg";
 import saveIconFill from "../../images/save-icon-fill.svg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useSavedArticles } from "../../contexts/SavedArticlesContext";
 
-function NewsCard({
-  currentPage,
-  isLoggedIn,
-  cardInfo,
-  handleSaveArticle,
-  handleUnsaveArticle,
-  savedArticles,
-}) {
+function NewsCard({ currentPage, isLoggedIn, cardInfo }) {
   const [deleteHoverActive, setDeleteHoverActive] = useState(false);
   const [saveHoverActive, setSaveHoverActive] = useState(false);
-  const [showCard, setShowCard] = useState(true);
-
-  const articleIsInSavedArticlesArray = savedArticles.some((item) => {
-    return item.publishedAt === cardInfo.publishedAt;
-  });
-
-  const [articleIsSaved, setArticleIsSaved] = useState(
-    articleIsInSavedArticlesArray
-  );
+  const { savedArticles, saveArticle, removeArticle } = useSavedArticles();
 
   const handleClickSave = () => {
-    if (articleIsSaved) {
-      handleUnsaveArticle(cardInfo);
-      setArticleIsSaved(false);
+    if (
+      savedArticles.some(
+        (article) => article.publishedAt == cardInfo.publishedAt
+      )
+    ) {
+      removeArticle(cardInfo);
     } else {
-      handleSaveArticle(cardInfo);
-      setArticleIsSaved(true);
+      saveArticle(cardInfo);
     }
   };
 
   const handleClickDelete = () => {
-    handleUnsaveArticle(cardInfo);
-    setShowCard(false);
+    removeArticle(cardInfo);
+  };
+
+  const formatDate = (date) => {
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    const newDate = new Date(date);
+    const monthIndex = newDate.getUTCMonth();
+    const day = newDate.getUTCDate();
+    const year = newDate.getUTCFullYear();
+
+    return `${monthNames[monthIndex]} ${day}, ${year}`;
   };
 
   return (
-    <div className={`${showCard ? 'news-card' : 'news-card_hidden'}`}>
+    <div className="news-card">
       {/* Displays when user is logged in and on saved news page */}
       {currentPage === "saved-news" && (
         <div className="news-card__keyword-container">
@@ -95,7 +106,9 @@ function NewsCard({
         >
           <img
             src={
-              articleIsSaved
+              savedArticles.some(
+                (article) => article.publishedAt == cardInfo.publishedAt
+              )
                 ? saveIconFill
                 : saveHoverActive
                 ? saveIconBlack
@@ -114,7 +127,7 @@ function NewsCard({
         />
       </div>
       <div className="news-card__info">
-        <p className="news-card__date">{cardInfo.publishedAt}</p>
+        <p className="news-card__date">{formatDate(cardInfo.publishedAt)}</p>
         <h3 className="news-card__title">{cardInfo.title}</h3>
         <p className="news-card__article">{cardInfo.content}</p>
         <p className="news-card__source">{cardInfo.source.name}</p>
