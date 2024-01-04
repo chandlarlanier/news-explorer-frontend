@@ -17,7 +17,7 @@ function SearchResults({isLoggedIn, searchResults, latestKeyword}) {
       <div className="search-results__container">
         <h2 className="search-results__title">Search results</h2>
         <NewsCardList currentPage="main" isLoggedIn={isLoggedIn} content={limitedSearchResults} latestKeyword={latestKeyword}/>
-        <button className="search-results__show-more-button" onClick={handleShowMore}>Show more</button>
+        {numberOfCardsShown <= searchResults.length && (<button className="search-results__show-more-button" onClick={handleShowMore}>Show more</button>)}
       </div>
     </div>
   );
