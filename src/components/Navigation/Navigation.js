@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 import signOutIconWhite from "../../images/sign-out-icon_white.svg";
 import signOutIconBlack from "../../images/sign-out-icon_black.svg";
+import menuIconWhite from '../../images/menu-icon-white.svg';
+import menuIconBlack from '../../images/menu-icon-black.svg';
 
 function Navigation({ openPopup, isLoggedIn, currentPage }) {
   return (
@@ -18,8 +20,11 @@ function Navigation({ openPopup, isLoggedIn, currentPage }) {
           NewsExplorer
         </Link>
       </div>
+      <button className='navigation__menu-button' onClick={() => openPopup('menu')}>
+        <img src={currentPage=='home' ? menuIconWhite : menuIconBlack} alt="Menu"/>
+      </button>
       {isLoggedIn ? (
-        <div className="navigation__right">
+        <div className="navigation__links">
           <Link
             to="/"
             className={`navigation__home-link ${
@@ -55,9 +60,9 @@ function Navigation({ openPopup, isLoggedIn, currentPage }) {
           </button>
         </div>
       ) : (
-        <div className="navigation__right">
-          {/* <Link to="/"> */}
-          <div
+        <div className="navigation__links">
+          <Link
+            to="/"
             className={`navigation__home-link ${
               currentPage === "home"
                 ? "navigation__home-link_home"
@@ -65,8 +70,7 @@ function Navigation({ openPopup, isLoggedIn, currentPage }) {
             }`}
           >
             Home
-          </div>
-          {/* </Link> */}
+          </Link>
           <button
             className="navigation__sign-in-button"
             onClick={() => openPopup("sign-in")}

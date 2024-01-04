@@ -28,7 +28,15 @@
     color: #1A1B22;
 }
 
-.navigation__right {
+
+.navigation__menu-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.navigation__links {
     display: flex;
     height: 100%;
     align-items: center;
@@ -120,4 +128,16 @@
     align-items: center;
     justify-content: center;
     padding: 0;
+}
+
+@media screen and (max-width: 450px) {
+    .navigation__menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navigation__links {
+        display: none;
+    }
 }

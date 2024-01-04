@@ -3,6 +3,7 @@ import Main from "../Main/Main";
 import SavedNews from "../SavedNews/SavedNews";
 import SignInPopup from "../SignInPopup/SignInPopup";
 import SignUpPopup from "../SignUpPopup/SignUpPopup";
+import MenuPopup from "../MenuPopup/MenuPopup";
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import searchKeyword from "../../utils/NewsApi";
@@ -13,7 +14,7 @@ function App() {
   const [searchIsLoading, setSearchIsLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [noResultsFound, setNoResultsFound] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [latestKeyword, setLatestKeyword] = useState("");
 
   const handleSearchFormSubmit = (keyword) => {
@@ -69,6 +70,7 @@ function App() {
               element={
                 <SavedNews
                   isLoggedIn={true}
+                  openPopup={openPopup}
                 />
               }
             />
@@ -78,6 +80,9 @@ function App() {
           )}
           {activePopup === "sign-up" && (
             <SignUpPopup closePopup={closePopup} openPopup={openPopup} />
+          )}
+          {activePopup === 'menu' && (
+            <MenuPopup closePopup={closePopup} openPopup={openPopup} isLoggedIn={isLoggedIn}/>
           )}
         </Router>
       </SavedArticlesProvider>

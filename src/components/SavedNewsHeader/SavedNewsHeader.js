@@ -2,24 +2,30 @@ import "./SavedNewsHeader.css";
 import Navigation from "../Navigation/Navigation";
 import { useSavedArticles } from "../../contexts/SavedArticlesContext";
 
-function SavedNewsHeader({ isLoggedIn }) {
+function SavedNewsHeader({ isLoggedIn, openPopup }) {
   const { savedArticles } = useSavedArticles();
   const keywords = savedArticles.map((article) => article.keyword);
-  const uniqueKeywords = [...new Set(keywords)].map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+  const uniqueKeywords = [...new Set(keywords)].map(
+    (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  );
 
   const keywordText = (keywords) => {
     if (keywords.length <= 1) {
-      return keywords
+      return keywords;
     }
     if (keywords.length == 2) {
-      return `${keywords[0]} and ${keywords[1]}`
+      return `${keywords[0]} and ${keywords[1]}`;
     }
-    return `${keywords[0]}, ${keywords[1]}, and ${keywords.length - 2} other`
-  }
-  
+    return `${keywords[0]}, ${keywords[1]}, and ${keywords.length - 2} other`;
+  };
+
   return (
     <div className="saved-news-header">
-      <Navigation currentPage="saved-news" isLoggedIn={isLoggedIn} />
+      <Navigation
+        currentPage="saved-news"
+        isLoggedIn={isLoggedIn}
+        openPopup={openPopup}
+      />
       <div className="saved-news-header__info">
         <p className="saved-news-header__text">Saved articles</p>
         <h2 className="saved-news-header__title">
