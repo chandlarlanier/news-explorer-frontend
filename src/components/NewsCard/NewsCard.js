@@ -140,7 +140,7 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
         <p className="news-card__date">{formatDate(cardInfo.publishedAt)}</p>
         <h3 className="news-card__title">{cardInfo.title}</h3>
         <p className="news-card__article">{cardInfo.content}</p>
-        <p className="news-card__source">{cardInfo.source.name}</p>
+        <p className="news-card__source">{cardInfo.source.name.toUpperCase()}</p>
       </div>
     </div>
   );

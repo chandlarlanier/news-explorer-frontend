@@ -1,15 +1,19 @@
 .news-card-list {
-    background-color: #F5F6F7;
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
+  background-color: #f5f6f7;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: center;
+  /* padding: 40px; */
 }
 
 .news-card-list__cards {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    min-width: 1236px;
-    max-width: 1236px;
+    box-sizing: border-box;
+  width: 100%;
+  max-width: 1325px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  justify-items: center;
+  gap: 15px;
+  padding: 15px;
 }

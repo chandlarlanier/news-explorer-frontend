@@ -14,7 +14,7 @@ function App() {
   const [searchIsLoading, setSearchIsLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [noResultsFound, setNoResultsFound] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [latestKeyword, setLatestKeyword] = useState("");
 
   const handleSearchFormSubmit = (keyword) => {
