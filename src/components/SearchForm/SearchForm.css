@@ -35,3 +35,32 @@
   cursor: pointer;
   right: 0px;
 }
+
+@media screen and (max-width: 950px) {
+    .search-form__text-input {
+        height: 55px;
+        width: 450px;
+    }
+
+    .search-form__submit-button {
+        height: 55px;
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .search-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-form__text-input {
+        width: 288px;
+    }
+
+    .search-form__submit-button {
+        position: relative;
+        width: 288px;
+    }
+}

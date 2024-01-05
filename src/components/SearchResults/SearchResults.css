@@ -45,3 +45,15 @@
 .search-results__show-more-button:hover {
     background-color: #E8E8E8;
 }
+
+@media screen and (max-width: 950px) {
+    .search-results__title {
+        font-size: 30px;
+        line-height: 34px;
+    }
+
+    .search-results__show-more-button {
+        width: 240px;
+        height: 56px
+    }
+}

@@ -82,7 +82,7 @@ function App() {
             <SignUpPopup closePopup={closePopup} openPopup={openPopup} />
           )}
           {activePopup === 'menu' && (
-            <MenuPopup closePopup={closePopup} openPopup={openPopup} isLoggedIn={isLoggedIn}/>
+            <MenuPopup closePopup={closePopup} openPopup={openPopup} isLoggedIn={isLoggedIn} activePopup={activePopup}/>
           )}
         </Router>
       </SavedArticlesProvider>

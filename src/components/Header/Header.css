@@ -4,6 +4,7 @@
   background-image: url("../../images/header_background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,4 +32,31 @@
     line-height: 24px;
     font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
     font-weight: 400;
+}
+
+
+@media screen and (max-width: 950px) {
+    .header {
+        height: 400px;
+        padding-bottom: 40px;
+    }
+
+    .header__text {
+        width: 452px;
+    }
+
+    .header__title {
+        font-size: 36px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .header {
+        height: 536px;
+    }
+
+    .header__text {
+        width: 285px;
+    }
 }

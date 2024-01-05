@@ -1,22 +1,87 @@
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
-    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
-    font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  font-family: "Roboto-Regular", Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
 .footer__left {
-    color: #B6BCBF;
-    font-size: 16px;
-    line-height: 22px;
+  color: #b6bcbf;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .footer__right {
-    display: flex;
-    color: #1A1B22;
-    gap: 20px;
-    font-size: 18px;
-    line-height: 24px;
+  display: flex;
+  color: #1a1b22;
+  gap: 20px;
+  font-size: 18px;
+  line-height: 24px;
+  align-items: center;
+}
+
+.footer__home-link {
+  text-decoration: none;
+  color: #1a1b22;
+  cursor: pointer;
+}
+
+.footer__tripleten-link {
+  text-decoration: none;
+  color: #1a1b22;
+  cursor: pointer;
+}
+
+.footer__github-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.footer__linkedin-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 950px) {
+  .footer {
+    padding: 10px 25px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .footer {
+    position: relative;
+    height: 176px;
+  }
+
+  .footer__left {
+    position: absolute;
+    bottom: 30px;
+  }
+
+  .footer__home-link {
+    position: absolute;
+    top: 30px;
+  }
+
+  .footer__tripleten-link {
+    position: absolute;
+    top: 80px;
+  }
+
+  .footer__github-link {
+    position: absolute;
+    top: 30px;
+    right: 80px;
+  }
+
+  .footer__linkedin-link {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+  }
 }

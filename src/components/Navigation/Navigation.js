@@ -2,17 +2,25 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 import signOutIconWhite from "../../images/sign-out-icon_white.svg";
 import signOutIconBlack from "../../images/sign-out-icon_black.svg";
-import menuIconWhite from '../../images/menu-icon-white.svg';
-import menuIconBlack from '../../images/menu-icon-black.svg';
+import menuIconWhite from "../../images/menu-icon-white.svg";
+import menuIconBlack from "../../images/menu-icon-black.svg";
+import closeIconSmall from "../../images/close-icon-small.svg";
 
-function Navigation({ openPopup, isLoggedIn, currentPage }) {
+function Navigation({
+  openPopup,
+  isLoggedIn,
+  currentPage,
+  activePopup,
+  closePopup,
+}) {
   return (
     <div className="navigation">
       <div className="navigation__left">
         <Link
           to="/"
+          onClick={closePopup}
           className={`navigation__logo ${
-            currentPage === "home"
+            currentPage === "home" || activePopup === 'menu'
               ? "navigation__logo_home"
               : "navigation__logo_saved-news"
           }`}
@@ -20,8 +28,16 @@ function Navigation({ openPopup, isLoggedIn, currentPage }) {
           NewsExplorer
         </Link>
       </div>
-      <button className='navigation__menu-button' onClick={() => openPopup('menu')}>
-        <img src={currentPage=='home' ? menuIconWhite : menuIconBlack} alt="Menu"/>
+      <button className="navigation__menu-button">
+        {activePopup == "menu" ? (
+          <img src={closeIconSmall} alt="Close" onClick={closePopup} />
+        ) : (
+          <img
+            onClick={() => openPopup("menu")}
+            src={currentPage == "home" ? menuIconWhite : menuIconBlack}
+            alt="Menu"
+          />
+        )}
       </button>
       {isLoggedIn ? (
         <div className="navigation__links">

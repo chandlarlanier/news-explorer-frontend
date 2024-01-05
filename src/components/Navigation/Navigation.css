@@ -130,11 +130,34 @@
     padding: 0;
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 950px) {
+    .navigation {
+        height: 65px;
+        padding: 0 25px;
+    }
+
+    .navigation__links {
+        gap: 25px;
+    }
+
+    .navigation__sign-in-button {
+        height: 40px;
+        width: 152px;
+    }
+
+    .navigation__sign-out-button {
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
     .navigation__menu-button {
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 24px;
+        width: 24px;
+        object-fit: contain;
     }
 
     .navigation__links {

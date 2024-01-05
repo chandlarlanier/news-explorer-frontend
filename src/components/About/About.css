@@ -31,3 +31,30 @@
     font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
     font-weight: 400;
 }
+
+
+@media screen and (max-width: 950px) {
+    .about__author-image {
+        height: 232px;
+        width: 232px;
+    }
+
+    .about__title {
+        margin-top: -20px;
+        font-size: 30px;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .about {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 25px;
+    }
+
+    .about__author-image {
+        height: 272px;
+        width: 272px;
+    }
+}

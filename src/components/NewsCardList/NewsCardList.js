@@ -4,8 +4,8 @@ import NewsCard from "../NewsCard/NewsCard";
 function NewsCardList({currentPage, isLoggedIn, content, latestKeyword}) {
 
   return (
-    <div className="news-card-list">
-      <div className="news-card-list__cards">
+    <div className='news-card-list'>
+      <div className='news-card-list__cards'>
 
         {currentPage==='saved-news' && (
           content.map((card) => {

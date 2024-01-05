@@ -7,10 +7,16 @@ import { useSavedArticles } from "../../contexts/SavedArticlesContext";
 function SavedNews({ isLoggedIn, openPopup }) {
   const { savedArticles } = useSavedArticles();
 
+  const reverseArray = (array) => {
+    return [...array].reverse();
+  }
+
   return (
     <div className="saved-news">
       <SavedNewsHeader isLoggedIn={isLoggedIn} openPopup={openPopup} />
-      <NewsCardList currentPage="saved-news" content={savedArticles} />
+      {savedArticles.length > 0 && (
+        <NewsCardList currentPage="saved-news" content={reverseArray(savedArticles)} />
+      )}
       <Footer />
     </div>
   );
