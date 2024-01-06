@@ -17,7 +17,7 @@ import { CurrentUserProvider } from "../../contexts/CurrentUserContext";
 import ConfirmRegisterPopup from "../ConfirmRegisterPopup/ConfirmRegisterPopup";
 
 function App() {
-  const [activePopup, setActivePopup] = useState("registered");
+  const [activePopup, setActivePopup] = useState("");
   const [searchIsLoading, setSearchIsLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [noResultsFound, setNoResultsFound] = useState(false);
