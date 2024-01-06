@@ -23,7 +23,7 @@ function SavedNewsHeader({ isLoggedIn, openPopup, handleLogout }) {
   };
 
   return (
-    <div className="saved-news-header">
+    <header className="saved-news-header">
       <Navigation
         currentPage="saved-news"
         isLoggedIn={isLoggedIn}
@@ -43,7 +43,7 @@ function SavedNewsHeader({ isLoggedIn, openPopup, handleLogout }) {
           </span>
         </p>
       </div>
-    </div>
+    </header>
   );
 }
 

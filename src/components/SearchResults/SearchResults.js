@@ -17,7 +17,7 @@ function SearchResults({ isLoggedIn, searchResults, latestKeyword }) {
   };
 
   return (
-    <div className="search-results">
+    <section className="search-results">
       <div className="search-results__container">
         <h2 className="search-results__title">Search results</h2>
         <NewsCardList
@@ -35,7 +35,7 @@ function SearchResults({ isLoggedIn, searchResults, latestKeyword }) {
           </button>
         )}
       </div>
-    </div>
+    </section>
   );
 }
 

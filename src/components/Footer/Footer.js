@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__left">
         <span>&#169;</span> Supersite, Powered by News API
       </div>
@@ -35,7 +35,7 @@ function Footer() {
           <img src={linkedinLogo} alt="LinkedIn logo" />
         </a>
       </div>
-    </div>
+    </footer>
   );
 }
 

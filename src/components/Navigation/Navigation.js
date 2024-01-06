@@ -18,7 +18,7 @@ function Navigation({
   const { currentUser } = useCurrentUser();
 
   return (
-    <div className="navigation">
+    <nav className="navigation">
       <div className="navigation__left">
         <Link
           to="/"
@@ -100,7 +100,7 @@ function Navigation({
           </button>
         </div>
       )}
-    </div>
+    </nav>
   );
 }
 

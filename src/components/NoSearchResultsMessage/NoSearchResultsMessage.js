@@ -3,7 +3,7 @@ import noSearchResultsIcon from "../../images/search-not-found-icon.svg";
 
 function NoSearchResultsMessage() {
   return (
-    <div className="no-search-results-message">
+    <section className="no-search-results-message">
       <img
         className="no-search-results-message__image"
         src={noSearchResultsIcon}
@@ -15,7 +15,7 @@ function NoSearchResultsMessage() {
           Sorry, but nothing matched your search terms.
         </p>
       </div>
-    </div>
+    </section>
   );
 }
 

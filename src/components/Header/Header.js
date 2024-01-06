@@ -9,7 +9,7 @@ function Header({
   handleLogout,
 }) {
   return (
-    <div className="header">
+    <header className="header">
       <Navigation
         openPopup={openPopup}
         isLoggedIn={isLoggedIn}
@@ -24,7 +24,7 @@ function Header({
         </p>
       </div>
       <SearchForm handleSearchFormSubmit={handleSearchFormSubmit} />
-    </div>
+    </header>
   );
 }
 

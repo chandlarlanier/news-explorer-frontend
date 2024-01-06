@@ -11,7 +11,7 @@ function SavedNews({ isLoggedIn, openPopup, handleLogout }) {
   };
 
   return (
-    <div className="saved-news">
+    <section className="saved-news">
       <SavedNewsHeader
         isLoggedIn={isLoggedIn}
         openPopup={openPopup}
@@ -24,7 +24,7 @@ function SavedNews({ isLoggedIn, openPopup, handleLogout }) {
         />
       )}
       <Footer />
-    </div>
+    </section>
   );
 }
 
