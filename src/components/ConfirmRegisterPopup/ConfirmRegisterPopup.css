@@ -1,0 +1,52 @@
+.confirm-register-popup {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.confirm-register-popup__content {
+  background-color: #fff;
+  width: 430px;
+  border-radius: 10px;
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.confirm-register-popup__close-button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  top: -35px;
+  right: -35px;
+}
+
+.confirm-register-popup__title {
+  margin: 0;
+  font-family: "Roboto-Black", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  color: #1A1B22;
+}
+
+.confirm-register-popup__sign-in-button {
+  color: #2f71e5;
+  font-family: "Inter-Regular", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  width: fit-content;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}

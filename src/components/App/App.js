@@ -8,10 +8,11 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import searchKeyword from "../../utils/NewsApi";
 import { SavedArticlesProvider } from "../../contexts/SavedArticlesContext";
-import { CurrentUserProvider } from "../../contexts/CurrentUserContext";
+import { CurrentUserProvider, useCurrentUser } from "../../contexts/CurrentUserContext";
+import ConfirmRegisterPopup from "../ConfirmRegisterPopup/ConfirmRegisterPopup";
 
 function App() {
-  const [activePopup, setActivePopup] = useState("");
+  const [activePopup, setActivePopup] = useState("registered");
   const [searchIsLoading, setSearchIsLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [noResultsFound, setNoResultsFound] = useState(false);
@@ -38,6 +39,16 @@ function App() {
     });
   };
 
+  const handleLogin = (userInfo) => {
+    setIsLoggedIn(true);
+    // addCurrentUser(userInfo);
+  }
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    // removeCurrentUser();
+  }
+
   const closePopup = () => {
     setActivePopup("");
   };
@@ -45,6 +56,11 @@ function App() {
   const openPopup = (popupName) => {
     setActivePopup(popupName);
   };
+
+  const handleRegisterUser = (userInfo) => {
+    // addCurrentUser(userInfo);
+    setActivePopup('registered');
+  }
 
   return (
     <div className="app">
@@ -73,7 +89,7 @@ function App() {
               />
             </Routes>
             {activePopup === "sign-in" && (
-              <SignInPopup closePopup={closePopup} openPopup={openPopup} />
+              <SignInPopup closePopup={closePopup} openPopup={openPopup} handleLogin={handleLogin}/>
             )}
             {activePopup === "sign-up" && (
               <SignUpPopup closePopup={closePopup} openPopup={openPopup} />
@@ -85,6 +101,9 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 activePopup={activePopup}
               />
+            )}
+            {activePopup === 'registered' && (
+              <ConfirmRegisterPopup openPopup={openPopup} closePopup={closePopup} />
             )}
           </Router>
         </SavedArticlesProvider>
