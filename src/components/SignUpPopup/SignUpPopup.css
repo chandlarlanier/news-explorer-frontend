@@ -1,0 +1,21 @@
+.popup-with-form__label {
+    position: relative;
+}
+
+.popup-with-form__invalid-email-message {
+    color: red;
+    display: none;
+    margin: 0;
+    position: absolute;
+    top: 47px;
+}
+
+.popup-with-form__invalid-email-message_visible {
+    display: inline;
+}
+
+@media screen and (max-width: 550px) {
+    .popup-with-form__invalid-email-message {
+        top: 49px;
+    }
+}

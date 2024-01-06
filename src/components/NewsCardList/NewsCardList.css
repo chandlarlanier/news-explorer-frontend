@@ -23,3 +23,9 @@
 
     }
 }
+
+@media screen and (max-width: 550px) {
+    .news-card-list__cards {
+        grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));;
+    }
+}
