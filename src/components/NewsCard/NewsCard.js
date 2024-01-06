@@ -88,7 +88,10 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
           onClick={handleClickDelete}
         >
           {" "}
-          <img src={deleteHoverActive ? deleteIconBlack : deleteIconGray} />
+          <img
+            src={deleteHoverActive ? deleteIconBlack : deleteIconGray}
+            alt="Delete"
+          />
         </button>
       )}
 

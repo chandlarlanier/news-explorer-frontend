@@ -17,7 +17,7 @@ To view the project, follow these steps:
 2. Navigate to the project directory:
 ### `cd news-explorer-frontend`
 
-3. Install the necessary dependencies:
+3. Once inside the project directory, install the necessary dependencies:
 ### `npm install`
 
 4. Start the development server:
