@@ -1,8 +1,11 @@
 import "./SignInPopup.css";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useState } from "react";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function SignInPopup({ closePopup, openPopup }) {
+function SignInPopup({ closePopup, openPopup, handleLogin }) {
+
+  const {addCurrentUser} = useCurrentUser();
   const [formIsValid, setFormIsValid] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -23,6 +26,20 @@ function SignInPopup({ closePopup, openPopup }) {
     }
   };
 
+  const handleSubmitForm = () => {
+    const userEmail = formData.email;
+    const emailArray = userEmail.split("@");
+    const emailName = emailArray[0];
+    const username =
+      emailName.charAt(0).toUpperCase() + emailName.slice(1).toLowerCase();
+    addCurrentUser({
+      email: formData.email,
+      password: formData.password,
+      username: username,
+    });
+    handleLogin();
+  }
+
   const validateEmail = (email) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return regex.test(email);
@@ -31,10 +48,6 @@ function SignInPopup({ closePopup, openPopup }) {
   const openSignUpPopup = () => {
     openPopup("sign-up");
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  }
 
   return (
     <div className="sign-in-popup">
@@ -45,6 +58,7 @@ function SignInPopup({ closePopup, openPopup }) {
         submitButtonText="Sign in"
         orButtonText="Sign up"
         formIsValid={formIsValid}
+        handleSubmit={handleSubmitForm}
       >
         <label className="popup-with-form__label">
           Email

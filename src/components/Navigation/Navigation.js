@@ -5,6 +5,7 @@ import signOutIconBlack from "../../images/sign-out-icon_black.svg";
 import menuIconWhite from "../../images/menu-icon-white.svg";
 import menuIconBlack from "../../images/menu-icon-black.svg";
 import closeIconSmall from "../../images/close-icon-small.svg";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function Navigation({
   openPopup,
@@ -12,7 +13,10 @@ function Navigation({
   currentPage,
   activePopup,
   closePopup,
+  handleLogout,
 }) {
+  const { currentUser } = useCurrentUser();
+
   return (
     <div className="navigation">
       <div className="navigation__left">
@@ -20,7 +24,7 @@ function Navigation({
           to="/"
           onClick={closePopup}
           className={`navigation__logo ${
-            currentPage === "home" || activePopup === 'menu'
+            currentPage === "home" || activePopup === "menu"
               ? "navigation__logo_home"
               : "navigation__logo_saved-news"
           }`}
@@ -62,13 +66,14 @@ function Navigation({
             Saved Articles
           </Link>
           <button
+            onClick={handleLogout}
             className={`navigation__sign-out-button ${
               currentPage === "home"
                 ? "navigation__sign-out-button_home"
                 : "navigation__sign-out-button_saved-news"
             }`}
           >
-            <p>Elise</p>
+            <p>{currentUser.username}</p>
             <img
               src={currentPage === "home" ? signOutIconWhite : signOutIconBlack}
               alt="Sign out"

@@ -1,8 +1,11 @@
 import "./SavedNewsHeader.css";
 import Navigation from "../Navigation/Navigation";
 import { useSavedArticles } from "../../contexts/SavedArticlesContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function SavedNewsHeader({ isLoggedIn, openPopup }) {
+function SavedNewsHeader({ isLoggedIn, openPopup, handleLogout }) {
+  const { currentUser } = useCurrentUser();
+
   const { savedArticles } = useSavedArticles();
   const keywords = savedArticles.map((article) => article.keyword);
   const uniqueKeywords = [...new Set(keywords)].map(
@@ -25,11 +28,12 @@ function SavedNewsHeader({ isLoggedIn, openPopup }) {
         currentPage="saved-news"
         isLoggedIn={isLoggedIn}
         openPopup={openPopup}
+        handleLogout={handleLogout}
       />
       <div className="saved-news-header__info">
         <p className="saved-news-header__text">Saved articles</p>
         <h2 className="saved-news-header__title">
-          Elise, you have {savedArticles.length} saved{" "}
+          {currentUser.username}, you have {savedArticles.length} saved{" "}
           {savedArticles.length == 1 ? "article" : "articles"}
         </h2>
         <p className="saved-news-header__keywords">

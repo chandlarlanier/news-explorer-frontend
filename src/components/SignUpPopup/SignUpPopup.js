@@ -1,8 +1,14 @@
 import "./SignUpPopup.css";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useState } from "react";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function SignUpPopup({ closePopup, openPopup }) {
+function SignUpPopup({
+  closePopup,
+  openPopup,
+  handleRegisterUser,
+}) {
+
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [formIsValid, setFormIsValid] = useState(false);
   const [formData, setFormData] = useState({
@@ -11,6 +17,10 @@ function SignUpPopup({ closePopup, openPopup }) {
     password: "",
   });
 
+  const handleSubmit = () => {
+    handleRegisterUser();
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -18,8 +28,13 @@ function SignUpPopup({ closePopup, openPopup }) {
       [name]: value,
     }));
 
-    if (formData.username && formData.email && formData.password && validateEmail(formData.email)) {
-      setFormIsValid(true)
+    if (
+      formData.username &&
+      formData.email &&
+      formData.password &&
+      validateEmail(formData.email)
+    ) {
+      setFormIsValid(true);
     } else {
       setFormIsValid(false);
     }
@@ -52,6 +67,7 @@ function SignUpPopup({ closePopup, openPopup }) {
         submitButtonText="Sign up"
         orButtonText="Sign in"
         formIsValid={formIsValid}
+        handleSubmit={handleSubmit}
       >
         <label className="popup-with-form__label">
           Email

@@ -12,7 +12,7 @@ import { CurrentUserProvider, useCurrentUser } from "../../contexts/CurrentUserC
 import ConfirmRegisterPopup from "../ConfirmRegisterPopup/ConfirmRegisterPopup";
 
 function App() {
-  const [activePopup, setActivePopup] = useState("registered");
+  const [activePopup, setActivePopup] = useState("");
   const [searchIsLoading, setSearchIsLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [noResultsFound, setNoResultsFound] = useState(false);
@@ -39,14 +39,13 @@ function App() {
     });
   };
 
-  const handleLogin = (userInfo) => {
+  const handleLogin = () => {
     setIsLoggedIn(true);
-    // addCurrentUser(userInfo);
+    closePopup();
   }
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-    // removeCurrentUser();
   }
 
   const closePopup = () => {
@@ -57,8 +56,7 @@ function App() {
     setActivePopup(popupName);
   };
 
-  const handleRegisterUser = (userInfo) => {
-    // addCurrentUser(userInfo);
+  const handleRegisterUser = () => {
     setActivePopup('registered');
   }
 
@@ -80,19 +78,20 @@ function App() {
                     noResultsFound={noResultsFound}
                     handleSearchFormSubmit={handleSearchFormSubmit}
                     latestKeyword={latestKeyword}
+                    handleLogout={handleLogout}
                   />
                 }
               />
               <Route
                 path="/saved-news"
-                element={<SavedNews isLoggedIn={true} openPopup={openPopup} />}
+                element={<SavedNews isLoggedIn={true} openPopup={openPopup} handleLogout={handleLogout}/>}
               />
             </Routes>
             {activePopup === "sign-in" && (
               <SignInPopup closePopup={closePopup} openPopup={openPopup} handleLogin={handleLogin}/>
             )}
             {activePopup === "sign-up" && (
-              <SignUpPopup closePopup={closePopup} openPopup={openPopup} />
+              <SignUpPopup closePopup={closePopup} openPopup={openPopup} handleRegisterUser={handleRegisterUser}/>
             )}
             {activePopup === "menu" && (
               <MenuPopup

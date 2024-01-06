@@ -13,7 +13,8 @@ function Main({
   searchResults,
   noResultsFound,
   handleSearchFormSubmit,
-  latestKeyword
+  latestKeyword,
+  handleLogout
 }) {
   return (
     <div className="main">
@@ -21,6 +22,7 @@ function Main({
         openPopup={openPopup}
         isLoggedIn={isLoggedIn}
         handleSearchFormSubmit={handleSearchFormSubmit}
+        handleLogout={handleLogout}
       />
       {searchIsLoading && <Preloader />}
       {noResultsFound && <NoSearchResultsMessage />}

@@ -1,11 +1,15 @@
 import "./PopupWithForm.css";
 import closeIcon from "../../images/close-icon.svg";
 
-function PopupWithForm({ name, closePopup, handleOrButton, children, submitButtonText, orButtonText, formIsValid }) {
-  // const validateEmail = (email) => {
-  //   const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  //   return regex.test(email);
-  // }
+function PopupWithForm({ name, closePopup, handleOrButton, children, submitButtonText, orButtonText, formIsValid, handleSubmit }) {
+  const handleClickSubmit = (e) => {
+    e.preventDefault();
+    if (formIsValid) {
+      handleSubmit();
+    } else {
+      return;
+    }
+  }
 
   return (
     <div className="popup-with-form">
@@ -14,7 +18,7 @@ function PopupWithForm({ name, closePopup, handleOrButton, children, submitButto
             <img className='popup-with-form__close-icon' src={closeIcon} alt="Close"/>
         </button>
         <h3 className="popup-with-form__title">{name}</h3>
-        <form className='popup-with-form__formfield'>
+        <form className='popup-with-form__formfield' onSubmit={handleClickSubmit}>
           {children}
           <button className={`popup-with-form__submit-button ${formIsValid ? 'popup-with-form__submit-button_active' : 'popup-with-form__submit-button_inactive'}`} type="submit">{submitButtonText}</button>
           {orButtonText && (
