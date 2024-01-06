@@ -4,7 +4,7 @@ import signOutIconWhite from "../../images/sign-out-icon_white.svg";
 import signOutIconBlack from "../../images/sign-out-icon_black.svg";
 import menuIconWhite from "../../images/menu-icon-white.svg";
 import menuIconBlack from "../../images/menu-icon-black.svg";
-import closeIconSmall from "../../images/close-icon-small.svg";
+import closeIcon from "../../images/close-icon.svg";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function Navigation({
@@ -34,7 +34,7 @@ function Navigation({
       </div>
       <button className="navigation__menu-button">
         {activePopup == "menu" ? (
-          <img src={closeIconSmall} alt="Close" onClick={closePopup} />
+          <img className='navigation__menu-icon' src={closeIcon} alt="Close" onClick={closePopup} />
         ) : (
           <img
             onClick={() => openPopup("menu")}

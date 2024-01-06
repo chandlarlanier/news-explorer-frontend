@@ -1,14 +1,8 @@
 import "./SignUpPopup.css";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useState } from "react";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function SignUpPopup({
-  closePopup,
-  openPopup,
-  handleRegisterUser,
-}) {
-
+function SignUpPopup({ closePopup, openPopup, handleRegisterUser }) {
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [formIsValid, setFormIsValid] = useState(false);
   const [formData, setFormData] = useState({

@@ -1,44 +1,41 @@
 .preloader {
-    background-color: #F5F6F7;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 282px;
+  background-color: #f5f6f7;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 282px;
 }
 
 .preloader__circle {
-    display: block;
-    width: 75px;
-    height: 75px;
-    border: 2px solid #444;
-    border-bottom-color: #888;
-    
-    border-radius: 50%;
-    
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 40px;
-    margin: auto;
-    
-    animation: spin .75s infinite linear;
+  display: block;
+  width: 75px;
+  height: 75px;
+  border: 2px solid #444;
+  border-bottom-color: #888;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  margin: auto;
+  animation: spin 0.75s infinite linear;
 }
 
 .preloader__text {
-    margin: 0;
-    color: #B6BCBF;
-    font-size: 18px;
-    line-height: 24px;
-    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    position: absolute;
-    top: 180px;
+  margin: 0;
+  color: #b6bcbf;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "Roboto-Regular", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  position: absolute;
+  top: 180px;
 }
 
 @keyframes spin {
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }

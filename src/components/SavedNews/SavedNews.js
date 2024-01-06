@@ -1,4 +1,3 @@
-import "./SavedNews.css";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Footer from "../Footer/Footer";
@@ -9,13 +8,20 @@ function SavedNews({ isLoggedIn, openPopup, handleLogout }) {
 
   const reverseArray = (array) => {
     return [...array].reverse();
-  }
+  };
 
   return (
     <div className="saved-news">
-      <SavedNewsHeader isLoggedIn={isLoggedIn} openPopup={openPopup} handleLogout={handleLogout}/>
+      <SavedNewsHeader
+        isLoggedIn={isLoggedIn}
+        openPopup={openPopup}
+        handleLogout={handleLogout}
+      />
       {savedArticles.length > 0 && (
-        <NewsCardList currentPage="saved-news" content={reverseArray(savedArticles)} />
+        <NewsCardList
+          currentPage="saved-news"
+          content={reverseArray(savedArticles)}
+        />
       )}
       <Footer />
     </div>

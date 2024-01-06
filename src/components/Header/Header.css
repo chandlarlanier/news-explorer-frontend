@@ -14,49 +14,48 @@
 }
 
 .header__text {
-    width: 608px;
+  width: 608px;
 }
 
 .header__title {
-    color: #FFF;
-    font-size: 60px;
-    line-height: 64px;
-    margin-top: 0;
-    font-family: "RobotoSlab-Regular", 'Times New Roman', Times, serif;
-    font-weight: 400;
+  color: #fff;
+  font-size: 60px;
+  line-height: 64px;
+  margin-top: 0;
+  font-family: "RobotoSlab-Regular", "Times New Roman", Times, serif;
+  font-weight: 400;
 }
 
 .header__description {
-    color: #FFF;
-    font-size: 18px;
-    line-height: 24px;
-    font-family: 'Roboto-Regular', Arial, Helvetica, sans-serif;
-    font-weight: 400;
+  color: #fff;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "Roboto-Regular", Arial, Helvetica, sans-serif;
+  font-weight: 400;
 }
 
-
 @media screen and (max-width: 950px) {
-    .header {
-        height: 400px;
-        padding-bottom: 40px;
-    }
+  .header {
+    height: 400px;
+    padding-bottom: 40px;
+  }
 
-    .header__text {
-        width: 452px;
-    }
+  .header__text {
+    width: 452px;
+  }
 
-    .header__title {
-        font-size: 36px;
-        line-height: 40px;
-    }
+  .header__title {
+    font-size: 36px;
+    line-height: 40px;
+  }
 }
 
 @media screen and (max-width: 550px) {
-    .header {
-        height: 536px;
-    }
+  .header {
+    height: 536px;
+  }
 
-    .header__text {
-        width: 285px;
-    }
+  .header__text {
+    width: 285px;
+  }
 }

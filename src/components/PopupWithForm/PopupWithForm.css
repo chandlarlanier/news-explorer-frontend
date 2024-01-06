@@ -70,7 +70,7 @@
 }
 
 .popup-with-form__input::placeholder {
-    color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .popup-with-form__submit-button {
@@ -87,14 +87,14 @@
 }
 
 .popup-with-form__submit-button_active {
-    cursor: pointer;
-    background-color: #2f71e5;
-    color: #fff;
+  cursor: pointer;
+  background-color: #2f71e5;
+  color: #fff;
 }
 
 .popup-with-form__submit-button_inactive {
-    background-color: #E6E8EB;
-    color: #B6BCBF;
+  background-color: #e6e8eb;
+  color: #b6bcbf;
 }
 
 .popup-with-form__or-button-container {
@@ -134,9 +134,9 @@
 }
 
 @media screen and (max-width: 550px) {
-    .popup-with-form {
-        align-items: flex-end;
-    }
+  .popup-with-form {
+    align-items: flex-end;
+  }
 
   .popup-with-form__content {
     border-radius: 10px 10px 0 0;

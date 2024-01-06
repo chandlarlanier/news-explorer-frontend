@@ -4,8 +4,7 @@ import { useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function SignInPopup({ closePopup, openPopup, handleLogin }) {
-
-  const {addCurrentUser} = useCurrentUser();
+  const { addCurrentUser } = useCurrentUser();
   const [formIsValid, setFormIsValid] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -38,7 +37,7 @@ function SignInPopup({ closePopup, openPopup, handleLogin }) {
       username: username,
     });
     handleLogin();
-  }
+  };
 
   const validateEmail = (email) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;

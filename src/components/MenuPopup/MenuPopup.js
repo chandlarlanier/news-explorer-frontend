@@ -1,26 +1,37 @@
 import "./MenuPopup.css";
-import closeIcon from "../../images/close-icon.svg";
 import { Link } from "react-router-dom";
-import SignOutIconWhite from "../../images/sign-out-icon_white.svg";
+import signOutIconWhite from "../../images/sign-out-icon_white.svg";
 import Navigation from "../Navigation/Navigation";
 
 function MenuPopup({ closePopup, openPopup, isLoggedIn, activePopup }) {
   return (
     <div className="menu-popup">
       <div className="menu-popup__content">
-        <Navigation activePopup={activePopup} closePopup={closePopup} openPopup={openPopup} isLoggedIn={isLoggedIn}/>
+        <Navigation
+          activePopup={activePopup}
+          closePopup={closePopup}
+          openPopup={openPopup}
+          isLoggedIn={isLoggedIn}
+        />
 
         {isLoggedIn ? (
           <div className="menu-popup__links">
             <Link to="/" className="menu-popup__home-link" onClick={closePopup}>
               Home
             </Link>
-            <Link onClick={closePopup} to="/saved-news" className="menu-popup__saved-news-link">
+            <Link
+              onClick={closePopup}
+              to="/saved-news"
+              className="menu-popup__saved-news-link"
+            >
               Saved Articles
             </Link>
-            <button onClick={closePopup} className="menu-popup__sign-out-button">
+            <button
+              onClick={closePopup}
+              className="menu-popup__sign-out-button"
+            >
               Sign out
-              <img src={SignOutIconWhite} />
+              <img src={signOutIconWhite} />
             </button>
           </div>
         ) : (
@@ -28,7 +39,12 @@ function MenuPopup({ closePopup, openPopup, isLoggedIn, activePopup }) {
             <Link to="/" className="menu-popup__home-link" onClick={closePopup}>
               Home
             </Link>
-            <button className='menu-popup__sign-in-button' onClick={() => openPopup('sign-in')}>Sign In</button>
+            <button
+              className="menu-popup__sign-in-button"
+              onClick={() => openPopup("sign-in")}
+            >
+              Sign In
+            </button>
           </div>
         )}
       </div>

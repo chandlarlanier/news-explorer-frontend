@@ -9,7 +9,11 @@ function ConfirmRegisterPopup({ openPopup, closePopup }) {
           onClick={closePopup}
           className="confirm-register-popup__close-button"
         >
-          <img src={closeIcon} alt="Close" />
+          <img
+            className="confirm-register-popup__close-icon"
+            src={closeIcon}
+            alt="Close"
+          />
         </button>
         <h2 className="confirm-register-popup__title">
           Registration successfully completed!

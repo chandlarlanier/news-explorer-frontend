@@ -8,13 +8,15 @@ const from = currentDate.toISOString();
 
 const pageSize = 100;
 
-
 const searchKeyword = (q) => {
-  return fetch(`${baseUrl}apiKey=${apiKey}&q=${q}&from=${from}&to=${to}&pageSize=${pageSize}`, {
-    headers: {
-      authorization: apiKey,
-    },
-  }).then((res) => {
+  return fetch(
+    `${baseUrl}apiKey=${apiKey}&q=${q}&from=${from}&to=${to}&pageSize=${pageSize}`,
+    {
+      headers: {
+        authorization: apiKey,
+      },
+    }
+  ).then((res) => {
     if (res.ok) {
       return res.json();
     } else {

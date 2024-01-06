@@ -14,7 +14,7 @@ function Main({
   noResultsFound,
   handleSearchFormSubmit,
   latestKeyword,
-  handleLogout
+  handleLogout,
 }) {
   return (
     <div className="main">
@@ -27,7 +27,11 @@ function Main({
       {searchIsLoading && <Preloader />}
       {noResultsFound && <NoSearchResultsMessage />}
       {searchResults.length > 0 && (
-        <SearchResults searchResults={searchResults} isLoggedIn={isLoggedIn} latestKeyword={latestKeyword}/>
+        <SearchResults
+          searchResults={searchResults}
+          isLoggedIn={isLoggedIn}
+          latestKeyword={latestKeyword}
+        />
       )}
       <About />
       <Footer />

@@ -75,7 +75,6 @@
   width: 40px;
   z-index: 100;
   position: absolute;
-  background-image: url("../../images/delete-icon-gray.svg");
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -89,7 +88,6 @@
 }
 
 .news-card__delete-button_hover {
-  background: url("../../images/delete-icon-black.svg");
   background-color: #fff;
   background-position: center;
   background-repeat: no-repeat;
@@ -238,29 +236,28 @@
 }
 
 @media screen and (max-width: 550px) {
-    .news-card {
-        width: 288px;
-        height: 440px;
-    }
+  .news-card {
+    width: 288px;
+    height: 440px;
+  }
 
-    .news-card__image-container {
-        width: 288px;
-        height: 196px;
-    }
+  .news-card__image-container {
+    width: 288px;
+    height: 196px;
+  }
 
-    .news-card__info {
-        height: 248px;
-    }
+  .news-card__info {
+    height: 248px;
+  }
 
-    .news-card__title {
-        -webkit-line-clamp: 2;
-        max-height: 48px;
-        margin: 12px 0 0;
-    }
+  .news-card__title {
+    -webkit-line-clamp: 2;
+    max-height: 48px;
+    margin: 12px 0 0;
+  }
 
-    .news-card__article {
-        width: 256px;
-        top: 95px;
-    }
-
+  .news-card__article {
+    width: 256px;
+    top: 95px;
+  }
 }

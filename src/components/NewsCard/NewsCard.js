@@ -27,9 +27,9 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
         title: cardInfo.title,
         content: cardInfo.content,
         source: {
-          name: cardInfo.source.name
-        }
-      }
+          name: cardInfo.source.name,
+        },
+      };
       saveArticle(card);
     }
   };
@@ -67,7 +67,10 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
       {/* Displays when user is logged in and on saved news page */}
       {currentPage === "saved-news" && (
         <div className="news-card__keyword-container">
-          <p>{cardInfo.keyword.charAt(0).toUpperCase() + cardInfo.keyword.slice(1).toLowerCase()}</p>
+          <p>
+            {cardInfo.keyword.charAt(0).toUpperCase() +
+              cardInfo.keyword.slice(1).toLowerCase()}
+          </p>
         </div>
       )}
       {currentPage === "saved-news" && deleteHoverActive && (
@@ -83,7 +86,10 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
           onMouseEnter={() => setDeleteHoverActive(true)}
           onMouseLeave={() => setDeleteHoverActive(false)}
           onClick={handleClickDelete}
-        ></button>
+        >
+          {" "}
+          <img src={deleteHoverActive ? deleteIconBlack : deleteIconGray} />
+        </button>
       )}
 
       {/* Displays when user is on main page and not logged in */}
@@ -140,7 +146,9 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
         <p className="news-card__date">{formatDate(cardInfo.publishedAt)}</p>
         <h3 className="news-card__title">{cardInfo.title}</h3>
         <p className="news-card__article">{cardInfo.content}</p>
-        <p className="news-card__source">{cardInfo.source.name.toUpperCase()}</p>
+        <p className="news-card__source">
+          {cardInfo.source.name.toUpperCase()}
+        </p>
       </div>
     </div>
   );
