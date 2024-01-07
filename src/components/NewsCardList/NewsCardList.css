@@ -25,7 +25,7 @@
   }
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 800px) {
   .news-card__list {
     max-width: 1000px;
 
@@ -33,6 +33,12 @@
 
   .news-card-list__cards {
     grid-template-columns: repeat(auto-fit, 217px);
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .news-card-list__cards {
+    grid-template-columns: repeat(auto-fit, 288px);
   }
 }
 

@@ -133,21 +133,28 @@
   font-weight: 400;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
   .popup-with-form {
     align-items: flex-end;
+    background-image: url('../../images/header_background.jpg');
+    background-position: center;
+    background-size: cover;
   }
 
   .popup-with-form__content {
     border-radius: 10px 10px 0 0;
     height: 90vh;
-    padding: 20px;
+    padding: 16px;
     width: 100%;
   }
 
+  .popup-with-form__title {
+    margin-bottom: 18px;
+  }
+
   .popup-with-form__close-button {
-    right: 0px;
-    top: -33px;
+    right: 16px;
+    top: -40px;
     height: 24px;
     width: 24px;
     object-fit: contain;
@@ -160,9 +167,10 @@
 
   .popup-with-form__submit-button {
     margin-top: 0;
+    box-sizing: border-box;
   }
 
   .popup-with-form__label:last-of-type {
-    margin-bottom: 20px;
+    margin-bottom: 23px;
   }
 }

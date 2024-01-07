@@ -11,3 +11,9 @@
         padding: 32px 40px;
     }
 }
+
+@media screen and (max-width: 560px) {
+    .saved-news__container {
+        padding: 24px 15px 12px;
+    }
+}

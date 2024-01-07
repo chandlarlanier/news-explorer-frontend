@@ -14,8 +14,8 @@
   display: inline;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
   .popup-with-form__invalid-email-message {
-    top: 49px;
+    top: 54px;
   }
 }

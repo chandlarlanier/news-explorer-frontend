@@ -183,29 +183,10 @@
 
   .navigation__sign-out-button {
     height: 40px;
-    width: 
   }
 }
 
-
-
-/* @media screen and (max-width: 950px) {
-  .navigation {
-    height: 65px;
-    padding: 0 25px;
-  }
-
-  .navigation__links {
-    gap: 25px;
-  }
-
-  .navigation__sign-in-button {
-    height: 40px;
-    width: 152px;
-  }
-} */
-
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 750px) {
   .navigation__menu-button {
     display: flex;
     align-items: center;
@@ -222,5 +203,16 @@
 
   .navigation__links {
     display: none;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .navigation {
+    padding: 15px;
+  }
+  
+  .navigation__logo {
+    font-size: 16px;
+    line-height: 24px;
   }
 }
