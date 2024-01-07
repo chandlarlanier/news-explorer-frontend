@@ -1,49 +1,61 @@
 .footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
   padding: 10px 50px;
   font-family: "Roboto-Regular", Arial, Helvetica, sans-serif;
   font-weight: 400;
+  display: grid;
+  grid-template-areas: "copyright home tripleten github linkedin";
+  align-items: center;
+  justify-items: flex-start;
+  grid-template-columns: 1fr repeat(3, min-content);
+  column-gap: 20px;
 }
 
-.footer__left {
+.footer__copyright {
   color: #b6bcbf;
   font-size: 16px;
   line-height: 22px;
+  grid-area: copyright;
 }
 
-.footer__right {
-  display: flex;
+.footer__links {
   color: #1a1b22;
-  gap: 20px;
   font-size: 18px;
   line-height: 24px;
-  align-items: center;
 }
 
 .footer__home-link {
   text-decoration: none;
   color: #1a1b22;
   cursor: pointer;
+  grid-area: home;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .footer__tripleten-link {
   text-decoration: none;
-  color: #1a1b22;
   cursor: pointer;
+  grid-area: tripleten;
+  color: #1a1b22;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .footer__github-link {
   cursor: pointer;
   display: flex;
   align-items: center;
+  grid-area: github;
 }
 
 .footer__linkedin-link {
   cursor: pointer;
   display: flex;
   align-items: center;
+  grid-area: linkedin;
 }
 
 @media screen and (max-width: 950px) {
@@ -52,13 +64,13 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+/* @media screen and (max-width: 550px) {
   .footer {
     position: relative;
     height: 176px;
   }
 
-  .footer__left {
+  .footer__copyright {
     position: absolute;
     bottom: 30px;
   }
@@ -83,5 +95,19 @@
     position: absolute;
     top: 30px;
     right: 25px;
+  }
+} */
+
+@media screen and (max-width: 550px) {
+  .footer {
+    grid-template-areas:
+      "home github linkedin"
+      "tripleten . ."
+      "copyright copyright copyright";
+    grid-template-columns: 1fr repeat(2, min-content);
+    grid-template-rows: min-content min-content 50px;
+    row-gap: 20px;
+    column-gap: 25px;
+    padding: 25px;
   }
 }
