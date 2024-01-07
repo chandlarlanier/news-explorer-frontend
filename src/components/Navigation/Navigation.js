@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import "./Navigation.css";
-import signOutIconWhite from "../../images/sign-out-icon_white.svg";
-import signOutIconBlack from "../../images/sign-out-icon_black.svg";
-import menuIconWhite from "../../images/menu-icon-white.svg";
-import menuIconBlack from "../../images/menu-icon-black.svg";
+import signOutIconWhite from "../../images/sign-out-icon_theme_white.svg";
+import signOutIconBlack from "../../images/sign-out-icon_theme_black.svg";
+import menuIconWhite from "../../images/menu-icon_theme_white.svg";
+import menuIconBlack from "../../images/menu-icon_theme_black.svg";
 import closeIcon from "../../images/close-icon.svg";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
@@ -25,8 +25,8 @@ function Navigation({
           onClick={closePopup}
           className={`navigation__logo ${
             currentPage === "home" || activePopup === "menu"
-              ? "navigation__logo_home"
-              : "navigation__logo_saved-news"
+              ? "navigation__logo_theme_white"
+              : "navigation__logo_theme_black"
           }`}
         >
           NewsExplorer
@@ -49,8 +49,8 @@ function Navigation({
             to="/"
             className={`navigation__home-link ${
               currentPage === "home"
-                ? "navigation__home-link_home"
-                : "navigation__home-link_saved-news"
+                ? "navigation__home-link_theme_white"
+                : "navigation__home-link_theme_black"
             }`}
           >
             Home
@@ -59,8 +59,8 @@ function Navigation({
             to="/saved-news"
             className={`navigation__profile-link ${
               currentPage === "home"
-                ? "navigation__profile-link_home"
-                : "navigation__profile-link_saved-news"
+                ? "navigation__profile-link_theme_white"
+                : "navigation__profile-link_theme_black"
             }`}
           >
             Saved Articles
@@ -69,8 +69,8 @@ function Navigation({
             onClick={handleLogout}
             className={`navigation__sign-out-button ${
               currentPage === "home"
-                ? "navigation__sign-out-button_home"
-                : "navigation__sign-out-button_saved-news"
+                ? "navigation__sign-out-button_theme_white"
+                : "navigation__sign-out-button_theme_black"
             }`}
           >
             <p>{currentUser.username}</p>
@@ -86,8 +86,8 @@ function Navigation({
             to="/"
             className={`navigation__home-link ${
               currentPage === "home"
-                ? "navigation__home-link_home"
-                : "navigation__home-link_saved-news"
+                ? "navigation__home-link_theme_white"
+                : "navigation__home-link_theme_black"
             }`}
           >
             Home
