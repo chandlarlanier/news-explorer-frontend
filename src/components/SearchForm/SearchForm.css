@@ -50,20 +50,14 @@
   background-color: #2a65cc;
 }
 
-@media screen and (max-width: 1215px) {
-  /* .search-form__text-input {
-    width: 452px;
-  } */
-}
-
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1030px) {
   .search-form__text-input {
-    height: 55px;
-    width: 450px;
+    height: 56px;
+    width: 452px;
   }
 
   .search-form__submit-button {
-    height: 55px;
+    height: 56px;
     width: 160px;
   }
 }

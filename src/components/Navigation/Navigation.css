@@ -146,7 +146,7 @@
   padding: 0;
 }
 
-@media screen and (max-width: 1350px) {
+/* @media screen and (max-width: 1350px) {
   .navigation {
     padding: 0 40px;
     height: 66px;
@@ -164,9 +164,32 @@
   .navigation__sign-out-button {
     height: 40px;
   }
+} */
+
+@media screen and (max-width: 1030px) {
+  .navigation {
+    height: 66px;
+    padding: 0 40px;
+  }
+
+  .navigation__home-link {
+    margin-right: 16px;
+  }
+
+  .navigation__sign-in-button {
+    height: 40px;
+    width: 152px;
+  }
+
+  .navigation__sign-out-button {
+    height: 40px;
+    width: 
+  }
 }
 
-@media screen and (max-width: 950px) {
+
+
+/* @media screen and (max-width: 950px) {
   .navigation {
     height: 65px;
     padding: 0 25px;
@@ -180,7 +203,7 @@
     height: 40px;
     width: 152px;
   }
-}
+} */
 
 @media screen and (max-width: 550px) {
   .navigation__menu-button {

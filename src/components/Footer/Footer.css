@@ -64,15 +64,10 @@
   grid-area: linkedin;
 }
 
-@media screen and (max-width: 1350px) {
-  .footer {
-    padding: 32px 40px 25px;
-  }
-}
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1030px) {
   .footer {
-    padding: 10px 25px;
+    padding: 24px 40px 18px;
   }
 }
 

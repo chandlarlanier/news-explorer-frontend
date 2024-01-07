@@ -67,7 +67,7 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
       {/* Displays when user is logged in and on saved news page */}
       {currentPage === "saved-news" && (
         <div className="news-card__keyword-container">
-          <p>
+          <p className='news-card__keyword'>
             {cardInfo.keyword.charAt(0).toUpperCase() +
               cardInfo.keyword.slice(1).toLowerCase()}
           </p>

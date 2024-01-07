@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   padding: 80px 105px;
-  /* width: 100%; */
 }
 
 .search-results__container {
@@ -45,16 +44,28 @@
   background-color: #e8e8e8;
 }
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1030px) {
+  .search-results {
+    padding: 40px;
+  }
+
   .search-results__title {
-    margin: 60px 40px 10px;
+    margin-bottom: 32px;
   }
 
   .search-results__show-more-button {
+    margin-top: 32px;
   }
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 880px) {
+  .search-results__title {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+/* @media screen and (max-width: 950px) {
   .search-results {
     padding: 30px 0;
   }
@@ -74,4 +85,4 @@
   .search-results {
     padding: 30px 0;
   }
-}
+} */
