@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="footer">
+      <div className='footer__container'>
       <p className="footer__copyright">
         <span>&#169;</span> Supersite, Powered by News API
       </p>
@@ -33,6 +34,7 @@ function Footer() {
       >
         <img src={linkedinLogo} alt="LinkedIn logo" />
       </a>
+      </div>
     </footer>
   );
 }

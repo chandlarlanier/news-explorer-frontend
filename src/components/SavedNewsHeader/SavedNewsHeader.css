@@ -1,5 +1,13 @@
-.saved-news-header__info {
+.saved-news-header__container {
   padding: 40px 105px 56px;
+  display: flex;
+  justify-content: center;
+}
+
+.saved-news-header__info {
+  max-width: 1253px;
+  width: 100%;
+  
 }
 
 .saved-news-header__text {
@@ -34,6 +42,13 @@
 .saved-news-header__keywords-span {
   font-family: "Roboto-Bold", Arial, Helvetica, sans-serif;
   font-weight: 700;
+}
+
+
+@media screen and (max-width: 1350px) {
+  .saved-news-header__info {
+    padding: 40px 40px 56px;
+  }
 }
 
 @media screen and (max-width: 950px) {

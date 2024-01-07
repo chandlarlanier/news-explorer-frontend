@@ -19,6 +19,7 @@ function Navigation({
 
   return (
     <nav className="navigation">
+      <div className='navigation__container'>
       <div className="navigation__left">
         <Link
           to="/"
@@ -100,6 +101,7 @@ function Navigation({
           </button>
         </div>
       )}
+      </div>
     </nav>
   );
 }

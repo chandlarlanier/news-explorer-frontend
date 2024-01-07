@@ -1,7 +1,14 @@
 .about {
   display: flex;
   padding: 80px 105px;
+  justify-content: center;
+}
+
+.about__container {
+  display: flex;
   gap: 55px;
+  width: 100%;
+  max-width: 1253px; 
 }
 
 .about__author-image {
@@ -33,10 +40,42 @@
   width: 600px;
 }
 
+@media screen and (max-width: 1350px) {
+  .about {
+    padding: 80px 40px;
+  }
+}
+
+@media screen and (max-width: 1215px) {
+  /* .about__author-image {
+    height: 400px;
+    width: 400px;
+  }
+
+  .about__text {
+    padding: 0;
+  }
+
+  .about__title {
+    
+  } */
+}
+
+@media screen and (max-width: 1085px) {
+  .about__author-image {
+    height: 330px;
+    width: 330px;
+  }
+
+  .about__description {
+    width: 500px;
+  }
+}
+
+
 @media screen and (max-width: 950px) {
   .about__author-image {
-    height: 232px;
-    width: 232px;
+    
   }
 
   .about__title {

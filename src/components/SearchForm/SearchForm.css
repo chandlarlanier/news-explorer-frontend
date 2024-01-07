@@ -50,6 +50,12 @@
   background-color: #2a65cc;
 }
 
+@media screen and (max-width: 1215px) {
+  /* .search-form__text-input {
+    width: 452px;
+  } */
+}
+
 @media screen and (max-width: 950px) {
   .search-form__text-input {
     height: 55px;

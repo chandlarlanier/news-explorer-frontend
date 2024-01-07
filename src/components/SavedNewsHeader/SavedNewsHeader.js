@@ -30,6 +30,7 @@ function SavedNewsHeader({ isLoggedIn, openPopup, handleLogout }) {
         openPopup={openPopup}
         handleLogout={handleLogout}
       />
+      <div className='saved-news-header__container'>
       <div className="saved-news-header__info">
         <p className="saved-news-header__text">Saved articles</p>
         <h2 className="saved-news-header__title">
@@ -42,6 +43,7 @@ function SavedNewsHeader({ isLoggedIn, openPopup, handleLogout }) {
             {keywordText(uniqueKeywords)}
           </span>
         </p>
+      </div>
       </div>
     </header>
   );

@@ -1,0 +1,6 @@
+.saved-news__container {
+    background-color: #F5F6F7;
+    display: flex;
+    justify-content: center;
+    padding: 62px 0;
+}

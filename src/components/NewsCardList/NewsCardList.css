@@ -3,18 +3,25 @@
   display: flex;
   box-sizing: border-box;
   width: 100%;
+  max-width: 1253px;
   justify-content: center;
 }
 
 .news-card-list__cards {
   box-sizing: border-box;
   width: 100%;
-  max-width: 1440px;
+  /* max-width: 0px; */
   display: grid;
   grid-template-columns: repeat(auto-fit, 395px);
   justify-items: center;
   gap: 15px;
-  padding: 62px 105px;
+  /* padding: 62px 105px; */
+}
+
+@media screen and (max-width: 1350px) {
+  .news-card-list__cards {
+    padding: 50px 40px;
+  }
 }
 
 @media screen and (max-width: 950px) {
