@@ -28,7 +28,6 @@
 @media screen and (max-width: 800px) {
   .news-card__list {
     max-width: 1000px;
-
   }
 
   .news-card-list__cards {
@@ -41,21 +40,3 @@
     grid-template-columns: repeat(auto-fit, 288px);
   }
 }
-
-/* @media screen and (max-width: 1350px) {
-  .news-card-list__cards {
-    padding: 50px 40px;
-  }
-} */
-
-/* @media screen and (max-width: 950px) {
-  .news-card-list__cards {
-    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .news-card-list__cards {
-    grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
-  }
-} */

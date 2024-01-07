@@ -15,7 +15,7 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
   const handleClickSave = () => {
     if (
       savedArticles.some(
-        (article) => article.publishedAt == cardInfo.publishedAt
+        (article) => article.publishedAt === cardInfo.publishedAt
       )
     ) {
       removeArticle(cardInfo);
@@ -67,7 +67,7 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
       {/* Displays when user is logged in and on saved news page */}
       {currentPage === "saved-news" && (
         <div className="news-card__keyword-container">
-          <p className='news-card__keyword'>
+          <p className="news-card__keyword">
             {cardInfo.keyword.charAt(0).toUpperCase() +
               cardInfo.keyword.slice(1).toLowerCase()}
           </p>
@@ -126,7 +126,7 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
           <img
             src={
               savedArticles.some(
-                (article) => article.publishedAt == cardInfo.publishedAt
+                (article) => article.publishedAt === cardInfo.publishedAt
               )
                 ? saveIconFill
                 : saveHoverActive

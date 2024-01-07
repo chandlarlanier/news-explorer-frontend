@@ -52,17 +52,17 @@
 }
 
 @media screen and (max-width: 550px) {
-    .confirm-register-popup__content {
-        padding: 20px;
-    }
+  .confirm-register-popup__content {
+    padding: 20px;
+  }
 
-    .confirm-register-popup__close-button {
-        right: 0;
-        top: -25px;
-    }
+  .confirm-register-popup__close-button {
+    right: 0;
+    top: -25px;
+  }
 
-    .confirm-register-popup__close-icon {
-        height: 24px;
-        width: 24px;
-    }
+  .confirm-register-popup__close-icon {
+    height: 24px;
+    width: 24px;
+  }
 }

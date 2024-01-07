@@ -16,7 +16,7 @@ function SavedNewsHeader({ isLoggedIn, openPopup, handleLogout }) {
     if (keywords.length <= 1) {
       return keywords;
     }
-    if (keywords.length == 2) {
+    if (keywords.length === 2) {
       return `${keywords[0]} and ${keywords[1]}`;
     }
     return `${keywords[0]}, ${keywords[1]}, and ${keywords.length - 2} other`;
@@ -30,20 +30,20 @@ function SavedNewsHeader({ isLoggedIn, openPopup, handleLogout }) {
         openPopup={openPopup}
         handleLogout={handleLogout}
       />
-      <div className='saved-news-header__container'>
-      <div className="saved-news-header__info">
-        <p className="saved-news-header__text">Saved articles</p>
-        <h2 className="saved-news-header__title">
-          {currentUser.username}, you have {savedArticles.length} saved{" "}
-          {savedArticles.length == 1 ? "article" : "articles"}
-        </h2>
-        <p className="saved-news-header__keywords">
-          By {uniqueKeywords.length == 1 ? "keyword" : "keywords"}:{" "}
-          <span className="saved-news-header__keywords-span">
-            {keywordText(uniqueKeywords)}
-          </span>
-        </p>
-      </div>
+      <div className="saved-news-header__container">
+        <div className="saved-news-header__info">
+          <p className="saved-news-header__text">Saved articles</p>
+          <h2 className="saved-news-header__title">
+            {currentUser.username}, you have {savedArticles.length} saved{" "}
+            {savedArticles.length === 1 ? "article" : "articles"}
+          </h2>
+          <p className="saved-news-header__keywords">
+            By {uniqueKeywords.length === 1 ? "keyword" : "keywords"}:{" "}
+            <span className="saved-news-header__keywords-span">
+              {keywordText(uniqueKeywords)}
+            </span>
+          </p>
+        </div>
       </div>
     </header>
   );

@@ -1,4 +1,3 @@
-import "./SignInPopup.css";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";

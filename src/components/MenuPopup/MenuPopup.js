@@ -31,7 +31,7 @@ function MenuPopup({ closePopup, openPopup, isLoggedIn, activePopup }) {
               className="menu-popup__sign-out-button"
             >
               Sign out
-              <img src={signOutIconWhite} alt="Sign out"/>
+              <img src={signOutIconWhite} alt="Sign out" />
             </button>
           </div>
         ) : (

@@ -10,7 +10,7 @@ function SearchResults({ isLoggedIn, searchResults, latestKeyword }) {
 
   useEffect(() => {
     setLimitedSearchResults(searchResults.slice(0, numberOfCardsShown));
-  }, [numberOfCardsShown]);
+  }, [numberOfCardsShown, searchResults]);
 
   const handleShowMore = () => {
     setNumberOfCardsShown(numberOfCardsShown + 3);

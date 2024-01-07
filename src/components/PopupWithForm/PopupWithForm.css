@@ -136,7 +136,7 @@
 @media screen and (max-width: 560px) {
   .popup-with-form {
     align-items: flex-end;
-    background-image: url('../../images/header_background.jpg');
+    background-image: url("../../images/header_background.jpg");
     background-position: center;
     background-size: cover;
   }
