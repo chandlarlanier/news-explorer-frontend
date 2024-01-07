@@ -9,9 +9,15 @@
   border-radius: 40px;
   width: 608px;
   height: 64px;
-  padding: 0 20px;
+  padding: 21px 24px;
   box-sizing: border-box;
   background-color: #fff;
+  font-family: "Roboto-Regular", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.search-form__text-input::placeholder {
+  color: #b6bcbf;
   font-family: "Roboto-Regular", Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
@@ -44,19 +50,19 @@
   background-color: #2a65cc;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1030px) {
   .search-form__text-input {
-    height: 55px;
-    width: 450px;
+    height: 56px;
+    width: 452px;
   }
 
   .search-form__submit-button {
-    height: 55px;
+    height: 56px;
     width: 160px;
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
   .search-form {
     display: flex;
     flex-direction: column;

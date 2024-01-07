@@ -1,87 +1,87 @@
 .footer {
+  padding: 32px 105px 25px;
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.footer__container {
+  width: 100%;
+  max-width: 1253px;
+  display: grid;
+  grid-template-areas: "copyright home tripleten github linkedin";
   align-items: center;
-  padding: 10px 50px;
+  justify-items: flex-start;
+  grid-template-columns: 1fr repeat(3, min-content);
+  column-gap: 25px;
   font-family: "Roboto-Regular", Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
-.footer__left {
+.footer__copyright {
   color: #b6bcbf;
   font-size: 16px;
   line-height: 22px;
-}
-
-.footer__right {
-  display: flex;
-  color: #1a1b22;
-  gap: 20px;
-  font-size: 18px;
-  line-height: 24px;
-  align-items: center;
+  grid-area: copyright;
+  margin: 0;
 }
 
 .footer__home-link {
   text-decoration: none;
   color: #1a1b22;
   cursor: pointer;
+  grid-area: home;
+  font-size: 18px;
+  line-height: 24px;
+  padding-right: 15px;
 }
 
 .footer__tripleten-link {
   text-decoration: none;
-  color: #1a1b22;
   cursor: pointer;
+  grid-area: tripleten;
+  color: #1a1b22;
+  font-size: 18px;
+  line-height: 24px;
+  padding-right: 15px;
 }
 
 .footer__github-link {
   cursor: pointer;
   display: flex;
   align-items: center;
+  grid-area: github;
 }
 
 .footer__linkedin-link {
   cursor: pointer;
   display: flex;
   align-items: center;
+  grid-area: linkedin;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1030px) {
   .footer {
-    padding: 10px 25px;
+    padding: 24px 40px 18px;
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
   .footer {
-    position: relative;
-    height: 176px;
+    padding: 20px 15px;
+  }
+  .footer__container {
+    grid-template-areas:
+      "home github linkedin"
+      "tripleten . ."
+      "copyright copyright copyright";
+    grid-template-columns: 1fr repeat(2, min-content);
+    grid-template-rows: min-content min-content 40px;
+    row-gap: 20px;
+    column-gap: 25px;
   }
 
-  .footer__left {
-    position: absolute;
-    bottom: 30px;
-  }
-
-  .footer__home-link {
-    position: absolute;
-    top: 30px;
-  }
-
-  .footer__tripleten-link {
-    position: absolute;
-    top: 80px;
-  }
-
-  .footer__github-link {
-    position: absolute;
-    top: 30px;
-    right: 80px;
-  }
-
-  .footer__linkedin-link {
-    position: absolute;
-    top: 30px;
-    right: 25px;
+  .footer__copyright {
+    align-self: flex-end;
   }
 }

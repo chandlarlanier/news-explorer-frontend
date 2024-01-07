@@ -1,6 +1,6 @@
 import "./MenuPopup.css";
 import { Link } from "react-router-dom";
-import signOutIconWhite from "../../images/sign-out-icon_white.svg";
+import signOutIconWhite from "../../images/sign-out-icon_theme_white.svg";
 import Navigation from "../Navigation/Navigation";
 
 function MenuPopup({ closePopup, openPopup, isLoggedIn, activePopup }) {
@@ -31,7 +31,7 @@ function MenuPopup({ closePopup, openPopup, isLoggedIn, activePopup }) {
               className="menu-popup__sign-out-button"
             >
               Sign out
-              <img src={signOutIconWhite} />
+              <img src={signOutIconWhite} alt="Sign out" />
             </button>
           </div>
         ) : (

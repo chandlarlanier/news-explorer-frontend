@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="footer">
-      <div className="footer__left">
-        <span>&#169;</span> Supersite, Powered by News API
-      </div>
-      <div className="footer__right">
+    <footer className="footer">
+      <div className="footer__container">
+        <p className="footer__copyright">
+          <span>&#169;</span> Supersite, Powered by News API
+        </p>
         <Link className="footer__home-link" to="/">
           Home
         </Link>
@@ -17,6 +17,7 @@ function Footer() {
           className="footer__tripleten-link"
           href="https://tripleten.com/"
           target="_blank"
+          rel="noreferrer"
         >
           TripleTen
         </a>
@@ -24,6 +25,7 @@ function Footer() {
           className="footer__github-link"
           href="https://github.com/chandlarlanier"
           target="_blank"
+          rel="noreferrer"
         >
           <img src={githubLogo} alt="GitHub logo" />
         </a>
@@ -31,11 +33,12 @@ function Footer() {
           className="footer__linkedin-link"
           href="https://www.linkedin.com/in/chandlarklanier"
           target="_blank"
+          rel="noreferrer"
         >
           <img src={linkedinLogo} alt="LinkedIn logo" />
         </a>
       </div>
-    </div>
+    </footer>
   );
 }
 

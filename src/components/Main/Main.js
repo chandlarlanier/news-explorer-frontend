@@ -17,7 +17,7 @@ function Main({
   handleLogout,
 }) {
   return (
-    <div className="main">
+    <main className="main">
       <Header
         openPopup={openPopup}
         isLoggedIn={isLoggedIn}
@@ -35,7 +35,7 @@ function Main({
       )}
       <About />
       <Footer />
-    </div>
+    </main>
   );
 }
 

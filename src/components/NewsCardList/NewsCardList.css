@@ -3,28 +3,40 @@
   display: flex;
   box-sizing: border-box;
   width: 100%;
+  max-width: 1253px;
   justify-content: center;
 }
 
 .news-card-list__cards {
   box-sizing: border-box;
   width: 100%;
-  max-width: 1325px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, 395px);
   gap: 15px;
-  padding: 15px;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1030px) {
+  .news-card__list {
+    max-width: 700px;
+  }
   .news-card-list__cards {
-    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 10px;
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 800px) {
+  .news-card__list {
+    max-width: 1000px;
+  }
+
   .news-card-list__cards {
-    grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+    grid-template-columns: repeat(auto-fit, 217px);
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .news-card-list__cards {
+    grid-template-columns: repeat(auto-fit, 288px);
   }
 }
