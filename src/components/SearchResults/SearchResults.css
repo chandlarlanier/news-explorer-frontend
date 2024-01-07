@@ -2,25 +2,23 @@
   background-color: #f5f6f7;
   display: flex;
   justify-content: center;
-  padding: 50px;
+  padding: 0;
+  width: 100%;
 }
 
 .search-results__container {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1285px;
 }
 
 .search-results__title {
-  margin: 0 0 20px;
+  margin: 80px 105px 0;
   color: #1a1b22;
   font-size: 40px;
   line-height: 46px;
   font-weight: 400;
   font-family: "RobotoSlab-Regular", "Times New Roman", Times, serif;
-  font-weight: 400;
-  padding-left: 15px;
 }
 
 .search-results__show-more-button {
@@ -39,7 +37,7 @@
   align-self: center;
   border-radius: 30px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-bottom: 80px;
 }
 
 .search-results__show-more-button:hover {

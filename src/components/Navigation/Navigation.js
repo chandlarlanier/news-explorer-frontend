@@ -73,7 +73,7 @@ function Navigation({
                 : "navigation__sign-out-button_theme_black"
             }`}
           >
-            <p>{currentUser.username}</p>
+            <p className='navigation__username'>{currentUser.username}</p>
             <img
               src={currentPage === "home" ? signOutIconWhite : signOutIconBlack}
               alt="Sign out"

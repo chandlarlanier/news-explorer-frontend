@@ -2,7 +2,8 @@
   /* display: flex; */
   /* justify-content: space-between; */
   /* align-items: center; */
-  padding: 10px 50px;
+  padding: 32px 105px 25px;
+  box-sizing: border-box;
   font-family: "Roboto-Regular", Arial, Helvetica, sans-serif;
   font-weight: 400;
   display: grid;
@@ -10,7 +11,7 @@
   align-items: center;
   justify-items: flex-start;
   grid-template-columns: 1fr repeat(3, min-content);
-  column-gap: 20px;
+  column-gap: 25px;
 }
 
 .footer__copyright {
@@ -18,12 +19,7 @@
   font-size: 16px;
   line-height: 22px;
   grid-area: copyright;
-}
-
-.footer__links {
-  color: #1a1b22;
-  font-size: 18px;
-  line-height: 24px;
+  margin: 0;
 }
 
 .footer__home-link {
@@ -33,6 +29,7 @@
   grid-area: home;
   font-size: 18px;
   line-height: 24px;
+  padding-right: 15px;
 }
 
 .footer__tripleten-link {
@@ -42,6 +39,7 @@
   color: #1a1b22;
   font-size: 18px;
   line-height: 24px;
+  padding-right: 15px;
 }
 
 .footer__github-link {

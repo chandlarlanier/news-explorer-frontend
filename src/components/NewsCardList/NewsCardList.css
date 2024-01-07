@@ -9,12 +9,12 @@
 .news-card-list__cards {
   box-sizing: border-box;
   width: 100%;
-  max-width: 1325px;
+  max-width: 1440px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, 395px);
   justify-items: center;
   gap: 15px;
-  padding: 15px;
+  padding: 62px 105px;
 }
 
 @media screen and (max-width: 950px) {

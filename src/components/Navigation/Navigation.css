@@ -4,7 +4,7 @@
   border-bottom: 0.5px solid #c4c4c4;
   height: 80px;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 105px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -36,9 +36,10 @@
 
 .navigation__links {
   display: flex;
+  box-sizing: border-box;
   height: 100%;
   align-items: center;
-  gap: 30px;
+  gap: 42px;
 }
 
 .navigation__home-link {
@@ -74,6 +75,8 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  padding-left: 34px;
+  padding-right: 22px;
 }
 
 .navigation__profile-link_theme_white {
@@ -89,12 +92,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px;
-  gap: 5px;
+  padding: 12px 19px;
+  gap: 17px;
   box-sizing: border-box;
   background-color: transparent;
   max-width: 150px;
-  height: 48px;
   border-radius: 30px;
   font-size: 18px;
   line-height: 24px;
@@ -111,6 +113,10 @@
 .navigation__sign-out-button_theme_black {
   color: #1a1b22;
   border: 1px solid #1a1b22;
+}
+
+.navigation__username {
+  margin: 0;
 }
 
 .navigation__sign-in-button {

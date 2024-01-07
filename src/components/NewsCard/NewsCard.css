@@ -40,8 +40,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 20px;
-  left: 20px;
+  top: 25px;
+  left: 25px;
   padding: 0 20px;
   font-size: 14px;
   line-height: 24px;
@@ -54,10 +54,10 @@
   background-color: #fff;
   height: 40px;
   position: absolute;
-  top: 20px;
+  top: 25px;
   z-index: 3;
   width: 159px;
-  left: 177px;
+  left: 172px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,8 +81,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 7px;
-  right: 20px;
-  top: 20px;
+  right: 25px;
+  top: 25px;
   border: none;
   cursor: pointer;
 }
@@ -97,14 +97,14 @@
   position: absolute;
   z-index: 3;
   background-color: #fff;
-  top: 20px;
+  top: 25px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 182px;
   border-radius: 7px;
-  left: 154px;
+  left: 150px;
   color: #000;
   font-size: 12px;
   font-family: "Roboto-Medium", Arial, Helvetica, sans-serif;
@@ -118,8 +118,8 @@
   width: 40px;
   z-index: 100;
   background-color: #fff;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+  right: 25px;
   border: none;
   display: flex;
   justify-content: center;

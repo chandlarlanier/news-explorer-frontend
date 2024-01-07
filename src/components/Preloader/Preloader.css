@@ -3,7 +3,6 @@
   position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 282px;
 }
 
@@ -15,10 +14,9 @@
   border-bottom-color: #888;
   border-radius: 50%;
   position: absolute;
-  top: 0;
+  top: 80px;
   left: 0;
   right: 0;
-  bottom: 40px;
   margin: auto;
   animation: spin 0.75s infinite linear;
 }
@@ -31,7 +29,7 @@
   font-family: "Roboto-Regular", Arial, Helvetica, sans-serif;
   font-weight: 400;
   position: absolute;
-  top: 180px;
+  bottom: 80px;
 }
 
 @keyframes spin {
