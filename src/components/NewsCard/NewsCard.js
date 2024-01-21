@@ -6,36 +6,66 @@ import saveIconBlack from "../../images/save-icon-black.svg";
 import saveIconFill from "../../images/save-icon-fill.svg";
 import { useState } from "react";
 import { useSavedArticles } from "../../contexts/SavedArticlesContext";
+import { saveArticle, unsaveArticle } from "../../utils/MainApi";
 
-function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
+function NewsCard({
+  currentPage,
+  isLoggedIn,
+  cardInfo,
+  latestKeyword,
+  openPopup,
+}) {
   const [deleteHoverActive, setDeleteHoverActive] = useState(false);
   const [saveHoverActive, setSaveHoverActive] = useState(false);
-  const { savedArticles, saveArticle, removeArticle } = useSavedArticles();
+  const { savedArticles, addArticle, removeArticle } = useSavedArticles();
 
   const handleClickSave = () => {
+    // if no user is logged in, open sign up popup
+    if (!isLoggedIn) {
+      openPopup("sign-up");
+      return;
+    }
+
+    // if article is already saved, remove it from saved articles context and delete from database
     if (
       savedArticles.some(
         (article) => article.publishedAt === cardInfo.publishedAt
       )
     ) {
-      removeArticle(cardInfo);
+      return unsaveArticle()
+        .then(() => {
+          removeArticle(cardInfo, localStorage.getItem("jwt"));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      // if card has not already been saved, add it to saved cards context and save to database
     } else {
       const card = {
         keyword: latestKeyword,
-        publishedAt: cardInfo.publishedAt,
-        urlToImage: cardInfo.urlToImage,
+        date: cardInfo.publishedAt,
+        image: cardInfo.urlToImage,
         title: cardInfo.title,
-        content: cardInfo.content,
-        source: {
-          name: cardInfo.source.name,
-        },
+        text: cardInfo.content,
+        source: cardInfo.source.name,
+        link: cardInfo.link,
       };
-      saveArticle(card);
+
+      return saveArticle(card, localStorage.getItem("jwt"))
+        .then((res) => {
+          addArticle(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
 
   const handleClickDelete = () => {
-    removeArticle(cardInfo);
+    // get article ID?
+    // return unsaveArticle()
+    // removeArticle(cardInfo);
   };
 
   const formatDate = (date) => {

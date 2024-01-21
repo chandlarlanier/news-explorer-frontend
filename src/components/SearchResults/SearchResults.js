@@ -2,7 +2,7 @@ import "./SearchResults.css";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import { useState, useEffect } from "react";
 
-function SearchResults({ isLoggedIn, searchResults, latestKeyword }) {
+function SearchResults({ isLoggedIn, searchResults, latestKeyword, openPopup }) {
   const [numberOfCardsShown, setNumberOfCardsShown] = useState(3);
   const [limitedSearchResults, setLimitedSearchResults] = useState(
     searchResults.slice(0, numberOfCardsShown)
@@ -25,6 +25,7 @@ function SearchResults({ isLoggedIn, searchResults, latestKeyword }) {
           isLoggedIn={isLoggedIn}
           content={limitedSearchResults}
           latestKeyword={latestKeyword}
+          openPopup={openPopup}
         />
         {numberOfCardsShown <= searchResults.length && (
           <button

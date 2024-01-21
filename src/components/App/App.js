@@ -15,6 +15,7 @@ import searchKeyword from "../../utils/NewsApi";
 import { SavedArticlesProvider } from "../../contexts/SavedArticlesContext";
 import { CurrentUserProvider } from "../../contexts/CurrentUserContext";
 import ConfirmRegisterPopup from "../ConfirmRegisterPopup/ConfirmRegisterPopup";
+import { checkToken, getSavedArticles } from "../../utils/MainApi";
 
 function App() {
   const [activePopup, setActivePopup] = useState("");
@@ -46,11 +47,11 @@ function App() {
 
   const handleLogin = () => {
     setIsLoggedIn(true);
-    closePopup();
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem("jwt");
   };
 
   const closePopup = () => {

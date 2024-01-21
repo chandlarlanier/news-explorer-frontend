@@ -34,7 +34,7 @@ function SavedNewsHeader({ isLoggedIn, openPopup, handleLogout }) {
         <div className="saved-news-header__info">
           <p className="saved-news-header__text">Saved articles</p>
           <h2 className="saved-news-header__title">
-            {currentUser.username}, you have {savedArticles.length} saved{" "}
+            {currentUser.name}, you have {savedArticles.length} saved{" "}
             {savedArticles.length === 1 ? "article" : "articles"}
           </h2>
           <p className="saved-news-header__keywords">

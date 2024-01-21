@@ -15,7 +15,12 @@ function Navigation({
   closePopup,
   handleLogout,
 }) {
-  const { currentUser } = useCurrentUser();
+  const { currentUser, removeCurrentUser } = useCurrentUser();
+
+  const handleClickLogout = () => {
+    removeCurrentUser();
+    handleLogout();
+  }
 
   return (
     <nav className="navigation">
@@ -72,14 +77,14 @@ function Navigation({
               Saved Articles
             </Link>
             <button
-              onClick={handleLogout}
+              onClick={handleClickLogout}
               className={`navigation__sign-out-button ${
                 currentPage === "home"
                   ? "navigation__sign-out-button_theme_white"
                   : "navigation__sign-out-button_theme_black"
               }`}
             >
-              <p className="navigation__username">{currentUser.username}</p>
+              <p className="navigation__username">{currentUser.name}</p>
               <img
                 src={
                   currentPage === "home" ? signOutIconWhite : signOutIconBlack

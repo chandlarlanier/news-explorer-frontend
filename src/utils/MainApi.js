@@ -1,31 +1,32 @@
 const baseUrl = "http://localhost:3001";
 
 const checkResponse = (res) => {
-  res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
+  if (res.ok) {
+    return res.json();
+  } else {
+    return Promise.reject(`Error: ${res.status}`);
+  } 
 };
 
 const signUp = (newUserData) => {
-  const { name, email, password } = newUserData;
-
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify(newUserData),
   }).then(checkResponse);
 };
 
 const signIn = (userData) => {
-  const { email, password } = userData;
-
-  return fetch(`${baseUrl}/signin`, {
+  const user = fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify(userData),
   }).then(checkResponse);
+  return user;
 };
 
 const checkToken = (token) => {
@@ -47,7 +48,8 @@ const getSavedArticles = (token) => {
 };
 
 const saveArticle = (articleInfo, token) => {
-  const { keyword, title, text, date, source, link, image, owner } = cardInfo;
+  const { keyword, title, text, date, source, link, image, owner } =
+    articleInfo;
 
   return fetch(`${baseUrl}/articles`, {
     method: "POST",

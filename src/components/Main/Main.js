@@ -31,6 +31,7 @@ function Main({
           searchResults={searchResults}
           isLoggedIn={isLoggedIn}
           latestKeyword={latestKeyword}
+          openPopup={openPopup}
         />
       )}
       <About />

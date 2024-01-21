@@ -23,6 +23,7 @@ function SavedNews({ isLoggedIn, openPopup, handleLogout }) {
           <NewsCardList
             currentPage="saved-news"
             content={reverseArray(savedArticles)}
+            openPopup={openPopup}
           />
         )}
       </div>

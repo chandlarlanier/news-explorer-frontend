@@ -9,7 +9,7 @@ export const useSavedArticles = () => {
 export const SavedArticlesProvider = ({ children }) => {
   const [savedArticles, setSavedArticles] = useState([]);
 
-  const saveArticle = (article) => {
+  const addArticle = (article) => {
     setSavedArticles([...savedArticles, article]);
   };
 
@@ -22,7 +22,7 @@ export const SavedArticlesProvider = ({ children }) => {
 
   return (
     <SavedArticlesContext.Provider
-      value={{ savedArticles, saveArticle, removeArticle }}
+      value={{ savedArticles, addArticle, removeArticle }}
     >
       {children}
     </SavedArticlesContext.Provider>

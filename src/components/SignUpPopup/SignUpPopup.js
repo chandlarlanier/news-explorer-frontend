@@ -1,18 +1,27 @@
 import "./SignUpPopup.css";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useState } from "react";
+import { signUp } from "../../utils/MainApi";
 
 function SignUpPopup({ closePopup, openPopup, handleRegisterUser }) {
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [formIsValid, setFormIsValid] = useState(false);
   const [formData, setFormData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
   });
 
   const handleSubmit = () => {
-    handleRegisterUser();
+    return signUp({
+      name: formData.name,
+      email: formData.email,
+      password: formData.password,
+    }).then(() => {
+      handleRegisterUser();
+    }).catch((error) => {
+      console.log(error);
+    })
   };
 
   const handleChange = (e) => {
@@ -23,7 +32,7 @@ function SignUpPopup({ closePopup, openPopup, handleRegisterUser }) {
     }));
 
     if (
-      formData.username &&
+      formData.name &&
       formData.email &&
       formData.password &&
       validateEmail(formData.email)
@@ -102,7 +111,7 @@ function SignUpPopup({ closePopup, openPopup, handleRegisterUser }) {
             type="text"
             placeholder="Enter username"
             required
-            name="username"
+            name="name"
             onChange={handleChange}
           />
         </label>
