@@ -14,8 +14,10 @@ export const SavedArticlesProvider = ({ children }) => {
   };
 
   const removeArticle = (cardInfo) => {
+    const date = cardInfo.publishedAt || cardInfo.date;
+
     const updatedArticles = savedArticles.filter(
-      (article) => article.publishedAt !== cardInfo.publishedAt
+      (article) => article.date !== date
     );
     setSavedArticles(updatedArticles);
   };

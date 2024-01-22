@@ -26,26 +26,15 @@ function SignInPopup({ closePopup, openPopup, handleLogin }) {
   };
 
   const handleSubmitForm = () => {
-    // const userEmail = formData.email;
-    // const emailArray = userEmail.split("@");
-    // const emailName = emailArray[0];
-    // const username =
-    //   emailName.charAt(0).toUpperCase() + emailName.slice(1).toLowerCase();
-    // addCurrentUser({
-    //   email: formData.email,
-    //   password: formData.password,
-    //   username: username,
-    // });
-    // handleLogin();
-    signIn({ email: formData.email, password: formData.password }).then((res) => {
-        console.log(res);
+    signIn({ email: formData.email, password: formData.password })
+      .then((res) => {
         addCurrentUser(res.user);
-        localStorage.setItem('jwt', res.token);
+        localStorage.setItem("jwt", res.token);
         handleLogin();
         closePopup();
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 

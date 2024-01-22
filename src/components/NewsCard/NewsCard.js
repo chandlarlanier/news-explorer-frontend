@@ -4,7 +4,7 @@ import deleteIconGray from "../../images/delete-icon-gray.svg";
 import saveIconGray from "../../images/save-icon-gray.svg";
 import saveIconBlack from "../../images/save-icon-black.svg";
 import saveIconFill from "../../images/save-icon-fill.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSavedArticles } from "../../contexts/SavedArticlesContext";
 import { saveArticle, unsaveArticle } from "../../utils/MainApi";
 
@@ -17,7 +17,35 @@ function NewsCard({
 }) {
   const [deleteHoverActive, setDeleteHoverActive] = useState(false);
   const [saveHoverActive, setSaveHoverActive] = useState(false);
+  const [articleId, setArticleId] = useState("");
   const { savedArticles, addArticle, removeArticle } = useSavedArticles();
+
+  useEffect(() => {
+    if (
+      savedArticles.some((article) => {
+        return (
+          article.date === cardInfo.publishedAt ||
+          article.date === cardInfo.date
+        );
+      })
+    ) {
+      savedArticles.forEach((savedArticle) => {
+        if (
+          savedArticle.date === cardInfo.publishedAt ||
+          savedArticle.date === cardInfo.date
+        ) {
+          const tempId = savedArticle._id;
+          setArticleId(tempId);
+        }
+      });
+    } else {
+      setArticleId("");
+    }
+  }, [savedArticles]);
+
+  const openSignUpPopup = () => {
+    openPopup("sign-up");
+  };
 
   const handleClickSave = () => {
     // if no user is logged in, open sign up popup
@@ -28,17 +56,9 @@ function NewsCard({
 
     // if article is already saved, remove it from saved articles context and delete from database
     if (
-      savedArticles.some(
-        (article) => article.publishedAt === cardInfo.publishedAt
-      )
+      savedArticles.some((article) => article.date === cardInfo.publishedAt)
     ) {
-      return unsaveArticle()
-        .then(() => {
-          removeArticle(cardInfo, localStorage.getItem("jwt"));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      return handleClickDelete();
 
       // if card has not already been saved, add it to saved cards context and save to database
     } else {
@@ -48,8 +68,8 @@ function NewsCard({
         image: cardInfo.urlToImage,
         title: cardInfo.title,
         text: cardInfo.content,
-        source: cardInfo.source.name,
-        link: cardInfo.link,
+        source: cardInfo.source,
+        link: cardInfo.url,
       };
 
       return saveArticle(card, localStorage.getItem("jwt"))
@@ -63,9 +83,13 @@ function NewsCard({
   };
 
   const handleClickDelete = () => {
-    // get article ID?
-    // return unsaveArticle()
-    // removeArticle(cardInfo);
+    return unsaveArticle(articleId, localStorage.getItem("jwt"))
+      .then(() => {
+        removeArticle(cardInfo);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const formatDate = (date) => {
@@ -137,6 +161,7 @@ function NewsCard({
           className="news-card__save-button"
           onMouseEnter={() => setSaveHoverActive(true)}
           onMouseLeave={() => setSaveHoverActive(false)}
+          onClick={openSignUpPopup}
         >
           <img
             src={saveHoverActive ? saveIconBlack : saveIconGray}
@@ -155,9 +180,7 @@ function NewsCard({
         >
           <img
             src={
-              savedArticles.some(
-                (article) => article.publishedAt === cardInfo.publishedAt
-              )
+              articleId
                 ? saveIconFill
                 : saveHoverActive
                 ? saveIconBlack
@@ -171,7 +194,7 @@ function NewsCard({
       <div className="news-card__image-container">
         <img
           className="news-card__image"
-          src={cardInfo.urlToImage}
+          src={cardInfo.urlToImage || cardInfo.image}
           alt="News graphic"
         />
       </div>
@@ -179,9 +202,7 @@ function NewsCard({
         <p className="news-card__date">{formatDate(cardInfo.publishedAt)}</p>
         <h3 className="news-card__title">{cardInfo.title}</h3>
         <p className="news-card__article">{cardInfo.content}</p>
-        <p className="news-card__source">
-          {cardInfo.source.name.toUpperCase()}
-        </p>
+        <p className="news-card__source">{cardInfo.source.toUpperCase()}</p>
       </div>
     </div>
   );
