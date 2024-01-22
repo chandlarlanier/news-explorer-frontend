@@ -199,9 +199,13 @@ function NewsCard({
         />
       </div>
       <div className="news-card__info">
-        <p className="news-card__date">{formatDate(cardInfo.publishedAt)}</p>
+        <p className="news-card__date">
+          {formatDate(cardInfo.publishedAt || cardInfo.date)}
+        </p>
         <h3 className="news-card__title">{cardInfo.title}</h3>
-        <p className="news-card__article">{cardInfo.content}</p>
+        <p className="news-card__article">
+          {cardInfo.content || cardInfo.text}
+        </p>
         <p className="news-card__source">{cardInfo.source.toUpperCase()}</p>
       </div>
     </div>

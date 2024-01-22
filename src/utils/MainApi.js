@@ -39,12 +39,13 @@ const checkToken = (token) => {
 };
 
 const getSavedArticles = (token) => {
-  return fetch(`${baseUrl}/articles`, {
+  const savedArticles = fetch(`${baseUrl}/articles`, {
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
   }).then(checkResponse);
+  return savedArticles;
 };
 
 const saveArticle = (articleInfo, token) => {
