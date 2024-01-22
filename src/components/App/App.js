@@ -12,8 +12,6 @@ import {
   Navigate,
 } from "react-router-dom";
 import searchKeyword from "../../utils/NewsApi";
-// import { SavedArticlesProvider } from "../../contexts/SavedArticlesContext";
-// import { CurrentUserProvider } from "../../contexts/CurrentUserContext";
 import ConfirmRegisterPopup from "../ConfirmRegisterPopup/ConfirmRegisterPopup";
 import { checkToken, getSavedArticles } from "../../utils/MainApi";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -21,7 +19,7 @@ import { useSavedArticles } from "../../contexts/SavedArticlesContext";
 
 function App() {
   const { addCurrentUser } = useCurrentUser();
-  const { addArticle } = useSavedArticles();
+  const { addArticle, setSavedArticles } = useSavedArticles();
 
   const [activePopup, setActivePopup] = useState("");
   const [searchIsLoading, setSearchIsLoading] = useState(false);
@@ -57,6 +55,7 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
+    setSavedArticles([]);
   };
 
   const closePopup = () => {
@@ -75,13 +74,11 @@ function App() {
     if (localStorage.getItem("jwt")) {
       checkToken(localStorage.getItem("jwt"))
         .then((res) => {
-          console.log(res);
           addCurrentUser(res);
           setIsLoggedIn(true);
         })
         .then(() => {
           getSavedArticles(localStorage.getItem("jwt")).then((res) => {
-            console.log(res);
             res.forEach((article) => {
               addArticle(article);
             })
@@ -89,7 +86,7 @@ function App() {
         })
         .catch(console.error);
     }
-  }, [localStorage.getItem("jwt")]);
+  }, [isLoggedIn]);
 
   return (
     <div className="app">

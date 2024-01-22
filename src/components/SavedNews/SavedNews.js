@@ -7,8 +7,6 @@ import { useSavedArticles } from "../../contexts/SavedArticlesContext";
 function SavedNews({ isLoggedIn, openPopup, handleLogout }) {
   const { savedArticles } = useSavedArticles();
 
-  console.log(savedArticles);
-
   const reverseArray = (array) => {
     return [...array].reverse();
   };

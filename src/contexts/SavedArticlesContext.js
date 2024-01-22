@@ -24,7 +24,7 @@ export const SavedArticlesProvider = ({ children }) => {
 
   return (
     <SavedArticlesContext.Provider
-      value={{ savedArticles, addArticle, removeArticle }}
+      value={{ savedArticles, addArticle, removeArticle, setSavedArticles }}
     >
       {children}
     </SavedArticlesContext.Provider>
