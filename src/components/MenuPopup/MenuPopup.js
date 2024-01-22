@@ -2,8 +2,23 @@ import "./MenuPopup.css";
 import { Link } from "react-router-dom";
 import signOutIconWhite from "../../images/sign-out-icon_theme_white.svg";
 import Navigation from "../Navigation/Navigation";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function MenuPopup({ closePopup, openPopup, isLoggedIn, activePopup }) {
+function MenuPopup({
+  closePopup,
+  openPopup,
+  isLoggedIn,
+  activePopup,
+  handleLogout,
+}) {
+  const { removeCurrentUser } = useCurrentUser();
+  
+  const handleClickLogout = () => {
+    removeCurrentUser();
+    handleLogout();
+    closePopup();
+  };
+
   return (
     <div className="menu-popup">
       <div className="menu-popup__content">
@@ -27,7 +42,7 @@ function MenuPopup({ closePopup, openPopup, isLoggedIn, activePopup }) {
               Saved Articles
             </Link>
             <button
-              onClick={closePopup}
+              onClick={handleClickLogout}
               className="menu-popup__sign-out-button"
             >
               Sign out

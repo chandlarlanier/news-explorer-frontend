@@ -124,6 +124,7 @@ function App() {
                 openPopup={openPopup}
                 isLoggedIn={isLoggedIn}
                 activePopup={activePopup}
+                handleLogout={handleLogout}
               />
             )}
             {activePopup === "registered" && (
