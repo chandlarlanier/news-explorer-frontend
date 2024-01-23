@@ -62,6 +62,30 @@ function App() {
     setActivePopup("");
   };
 
+  useEffect(() => {
+    if (!activePopup) return;
+
+    const handleClickOutsidePopup = (e) => {
+      if (e.target.classList.contains("popup-with-form")) {
+        closePopup();
+      }
+    };
+
+    const handleEscapePopup = (e) => {
+      if (e.key === "Escape") {
+        closePopup();
+      }
+    };
+
+    document.addEventListener("click", handleClickOutsidePopup);
+    document.addEventListener("keydown", handleEscapePopup);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutsidePopup);
+      document.removeEventListener("keydown", handleEscapePopup);
+    };
+  }, [activePopup]);
+
   const openPopup = (popupName) => {
     setActivePopup(popupName);
   };
