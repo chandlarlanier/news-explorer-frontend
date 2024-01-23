@@ -20,7 +20,6 @@ import { useSavedArticles } from "../../contexts/SavedArticlesContext";
 function App() {
   const { addCurrentUser } = useCurrentUser();
   const { addArticle, setSavedArticles } = useSavedArticles();
-
   const [activePopup, setActivePopup] = useState("");
   const [searchIsLoading, setSearchIsLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
@@ -66,7 +65,10 @@ function App() {
     if (!activePopup) return;
 
     const handleClickOutsidePopup = (e) => {
-      if (e.target.classList.contains("popup-with-form")) {
+      if (
+        e.target.classList.contains("popup-with-form") ||
+        e.target.classList.contains("news-article-popup")
+      ) {
         closePopup();
       }
     };

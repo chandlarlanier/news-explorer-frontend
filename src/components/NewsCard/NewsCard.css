@@ -5,8 +5,8 @@
   border-radius: 15px;
   overflow: hidden;
   position: relative;
-  cursor: pointer;
   display: inline;
+  cursor: pointer;
 }
 
 .news-card_hidden {
@@ -133,6 +133,7 @@
   padding: 25px;
   position: relative;
   height: 304px;
+  cursor: pointer;
 }
 
 .news-card__date {
@@ -158,6 +159,7 @@
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   white-space: normal;
+  cursor: pointer;
 }
 
 .news-card__article {
