@@ -14,8 +14,19 @@
   display: inline;
 }
 
+.popup-with-form__email-taken-message {
+  position: absolute;
+  color: red;
+  top: 305px;
+  font-size: 14px;
+}
+
 @media screen and (max-width: 560px) {
   .popup-with-form__invalid-email-message {
     top: 54px;
   }
+
+  .popup-with-form__email-taken-message {
+    top: 187px;
+}
 }

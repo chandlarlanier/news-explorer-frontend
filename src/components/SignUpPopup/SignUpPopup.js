@@ -6,6 +6,7 @@ import { signUp } from "../../utils/MainApi";
 function SignUpPopup({ closePopup, openPopup, handleRegisterUser }) {
   const [emailIsValid, setEmailIsValid] = useState(true);
   const [formIsValid, setFormIsValid] = useState(false);
+  const [emailIsTakenMessage, setEmailIsTakenMessage] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,11 +18,16 @@ function SignUpPopup({ closePopup, openPopup, handleRegisterUser }) {
       name: formData.name,
       email: formData.email,
       password: formData.password,
-    }).then(() => {
-      handleRegisterUser();
-    }).catch((error) => {
-      console.log(error);
     })
+      .then(() => {
+        handleRegisterUser();
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error == 409) {
+          setEmailIsTakenMessage(true);
+        }
+      });
   };
 
   const handleChange = (e) => {
@@ -115,6 +121,11 @@ function SignUpPopup({ closePopup, openPopup, handleRegisterUser }) {
             onChange={handleChange}
           />
         </label>
+        {emailIsTakenMessage && (
+          <p className="popup-with-form__email-taken-message">
+            This email is not available
+          </p>
+        )}
       </PopupWithForm>
     </div>
   );

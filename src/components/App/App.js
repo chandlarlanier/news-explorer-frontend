@@ -81,7 +81,7 @@ function App() {
           getSavedArticles(localStorage.getItem("jwt")).then((res) => {
             res.forEach((article) => {
               addArticle(article);
-            })
+            });
           });
         })
         .catch(console.error);

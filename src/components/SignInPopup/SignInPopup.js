@@ -1,3 +1,4 @@
+import "./SignInPopup.css";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -6,6 +7,7 @@ import { signIn } from "../../utils/MainApi";
 function SignInPopup({ closePopup, openPopup, handleLogin }) {
   const { addCurrentUser } = useCurrentUser();
   const [formIsValid, setFormIsValid] = useState(false);
+  const [wrongInfoMessage, setWrongInfoMessage] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -26,16 +28,21 @@ function SignInPopup({ closePopup, openPopup, handleLogin }) {
   };
 
   const handleSubmitForm = () => {
-    signIn({ email: formData.email, password: formData.password })
-      .then((res) => {
-        addCurrentUser(res.user);
-        localStorage.setItem("jwt", res.token);
-        handleLogin();
-        closePopup();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (formIsValid) {
+      signIn({ email: formData.email, password: formData.password })
+        .then((res) => {
+          addCurrentUser(res.user);
+          localStorage.setItem("jwt", res.token);
+          handleLogin();
+          closePopup();
+        })
+        .catch((error) => {
+          console.error(error);
+          if (error == 401) {
+            setWrongInfoMessage(true);
+          }
+        });
+    }
   };
 
   const validateEmail = (email) => {
@@ -80,6 +87,11 @@ function SignInPopup({ closePopup, openPopup, handleLogin }) {
             name="password"
           />
         </label>
+        {wrongInfoMessage && (
+          <p className="popup-with-form__wrong-info-message">
+            Incorrect email or password
+          </p>
+        )}
       </PopupWithForm>
     </div>
   );

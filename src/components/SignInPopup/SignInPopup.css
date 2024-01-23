@@ -1,0 +1,12 @@
+.popup-with-form__wrong-info-message {
+    position: absolute;
+    color: red;
+    top: 220px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 560px) {
+    .popup-with-form__wrong-info-message {
+        top: 187px;
+    }
+}
