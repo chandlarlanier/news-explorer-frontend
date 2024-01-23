@@ -41,7 +41,7 @@ function NewsCard({
     } else {
       setArticleId("");
     }
-  }, [savedArticles]);
+  }, [savedArticles, cardInfo.date, cardInfo.publishedAt]);
 
   const openSignUpPopup = () => {
     openPopup("sign-up");

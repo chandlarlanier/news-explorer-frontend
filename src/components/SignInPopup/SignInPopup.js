@@ -38,7 +38,7 @@ function SignInPopup({ closePopup, openPopup, handleLogin }) {
         })
         .catch((error) => {
           console.error(error);
-          if (error == 401) {
+          if (error === 401) {
             setWrongInfoMessage(true);
           }
         });

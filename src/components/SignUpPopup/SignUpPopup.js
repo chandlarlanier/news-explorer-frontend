@@ -24,7 +24,7 @@ function SignUpPopup({ closePopup, openPopup, handleRegisterUser }) {
       })
       .catch((error) => {
         console.log(error);
-        if (error == 409) {
+        if (error === 409) {
           setEmailIsTakenMessage(true);
         }
       });

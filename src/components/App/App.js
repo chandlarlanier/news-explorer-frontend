@@ -112,7 +112,7 @@ function App() {
         })
         .catch(console.error);
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, addArticle, addCurrentUser]);
 
   return (
     <div className="app">
