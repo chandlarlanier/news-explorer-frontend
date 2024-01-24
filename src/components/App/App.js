@@ -19,7 +19,7 @@ import { useSavedArticles } from "../../contexts/SavedArticlesContext";
 
 function App() {
   const { addCurrentUser } = useCurrentUser();
-  const { addArticle, setSavedArticles } = useSavedArticles();
+  const { setSavedArticles } = useSavedArticles();
   const [activePopup, setActivePopup] = useState("");
   const [searchIsLoading, setSearchIsLoading] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
@@ -107,9 +107,7 @@ function App() {
         })
         .then(() => {
           getSavedArticles(localStorage.getItem("jwt")).then((res) => {
-            res.forEach((article) => {
-              addArticle(article);
-            });
+            setSavedArticles(res);
           });
         })
         .catch(console.error);

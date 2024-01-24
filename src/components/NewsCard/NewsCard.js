@@ -77,7 +77,7 @@ function NewsCard({
           addArticle(res);
         })
         .catch((error) => {
-          console.log(error);
+          console.error(error);
         });
     }
   };
@@ -88,7 +88,7 @@ function NewsCard({
         removeArticle(cardInfo);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
 
