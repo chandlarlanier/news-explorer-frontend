@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { signIn } from "../../utils/MainApi";
 
-function SignInPopup({ closePopup, openPopup, handleLogin }) {
+function SignInPopup({ closePopup, openPopup, handleLogin, setToken }) {
   const { addCurrentUser } = useCurrentUser();
   const [formIsValid, setFormIsValid] = useState(false);
   const [wrongInfoMessage, setWrongInfoMessage] = useState(false);
@@ -33,6 +33,7 @@ function SignInPopup({ closePopup, openPopup, handleLogin }) {
         .then((res) => {
           addCurrentUser(res.user);
           localStorage.setItem("jwt", res.token);
+          setToken(res.token);
           handleLogin();
           closePopup();
         })

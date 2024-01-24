@@ -26,6 +26,7 @@ function App() {
   const [noResultsFound, setNoResultsFound] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [latestKeyword, setLatestKeyword] = useState("");
+  const [token, setToken] = useState("");
 
   const handleSearchFormSubmit = (keyword) => {
     setNoResultsFound(false);
@@ -54,6 +55,7 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
+    setToken("");
     setSavedArticles([]);
   };
 
@@ -66,8 +68,8 @@ function App() {
 
     const handleClickOutsidePopup = (e) => {
       if (
-        e.target.classList.contains("popup-with-form") ||
-        e.target.classList.contains("news-article-popup")
+        (e.target.classList.contains("popup-with-form")) ||
+        (e.target.classList.contains("news-article-popup"))
       ) {
         closePopup();
       }
@@ -112,7 +114,7 @@ function App() {
         })
         .catch(console.error);
     }
-  }, [isLoggedIn, addArticle, addCurrentUser]);
+  }, [token]);
 
   return (
     <div className="app">
@@ -155,6 +157,7 @@ function App() {
             closePopup={closePopup}
             openPopup={openPopup}
             handleLogin={handleLogin}
+            setToken={setToken}
           />
         )}
         {activePopup === "sign-up" && (

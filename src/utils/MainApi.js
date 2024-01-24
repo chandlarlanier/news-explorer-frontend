@@ -1,6 +1,6 @@
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://newssearch.csproject.org"
+    ? "https://api.newssearch.csproject.org"
     : "http://localhost:3001";
 
 const checkResponse = (res) => {

@@ -15,7 +15,7 @@ function SearchResults({
 
   useEffect(() => {
     setLimitedSearchResults(searchResults.slice(0, numberOfCardsShown));
-  }, [numberOfCardsShown, searchResults]);
+  }, [numberOfCardsShown]);
 
   const handleShowMore = () => {
     setNumberOfCardsShown(numberOfCardsShown + 3);

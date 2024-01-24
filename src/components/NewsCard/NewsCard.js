@@ -24,15 +24,15 @@ function NewsCard({
     if (
       savedArticles.some((article) => {
         return (
-          article.date === cardInfo.publishedAt ||
-          article.date === cardInfo.date
+          (article.date === cardInfo.publishedAt) ||
+          (article.date === cardInfo.date)
         );
       })
     ) {
       savedArticles.forEach((savedArticle) => {
         if (
-          savedArticle.date === cardInfo.publishedAt ||
-          savedArticle.date === cardInfo.date
+          (savedArticle.date === cardInfo.publishedAt) ||
+          (savedArticle.date === cardInfo.date)
         ) {
           const tempId = savedArticle._id;
           setArticleId(tempId);
@@ -41,7 +41,7 @@ function NewsCard({
     } else {
       setArticleId("");
     }
-  }, [savedArticles, cardInfo.date, cardInfo.publishedAt]);
+  }, [savedArticles]);
 
   const openSignUpPopup = () => {
     openPopup("sign-up");

@@ -30,7 +30,7 @@ function Navigation({
             to="/"
             onClick={closePopup}
             className={`navigation__logo ${
-              currentPage === "home" || activePopup === "menu"
+              (currentPage === "home") || (activePopup === "menu")
                 ? "navigation__logo_theme_white"
                 : "navigation__logo_theme_black"
             }`}
