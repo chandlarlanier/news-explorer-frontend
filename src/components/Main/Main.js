@@ -17,7 +17,7 @@ function Main({
   handleLogout,
 }) {
   return (
-    <div className="main">
+    <main className="main">
       <Header
         openPopup={openPopup}
         isLoggedIn={isLoggedIn}
@@ -31,11 +31,12 @@ function Main({
           searchResults={searchResults}
           isLoggedIn={isLoggedIn}
           latestKeyword={latestKeyword}
+          openPopup={openPopup}
         />
       )}
       <About />
       <Footer />
-    </div>
+    </main>
   );
 }
 

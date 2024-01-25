@@ -1,7 +1,7 @@
 import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList({ currentPage, isLoggedIn, content, latestKeyword }) {
+function NewsCardList({ currentPage, isLoggedIn, content, latestKeyword, openPopup }) {
   return (
     <div className="news-card-list">
       <div className="news-card-list__cards">
@@ -13,6 +13,7 @@ function NewsCardList({ currentPage, isLoggedIn, content, latestKeyword }) {
                 isLoggedIn={isLoggedIn}
                 key={content.indexOf(card)}
                 cardInfo={card}
+                openPopup={openPopup}
               />
             );
           })}
@@ -26,6 +27,7 @@ function NewsCardList({ currentPage, isLoggedIn, content, latestKeyword }) {
                 key={content.indexOf(card)}
                 cardInfo={card}
                 latestKeyword={latestKeyword}
+                openPopup={openPopup}
               />
             );
           })}

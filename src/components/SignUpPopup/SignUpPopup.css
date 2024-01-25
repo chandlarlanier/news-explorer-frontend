@@ -7,15 +7,26 @@
   display: none;
   margin: 0;
   position: absolute;
-  top: 47px;
+  top: 57px;
 }
 
 .popup-with-form__invalid-email-message_visible {
   display: inline;
 }
 
-@media screen and (max-width: 550px) {
+.popup-with-form__email-taken-message {
+  position: absolute;
+  color: red;
+  top: 305px;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 560px) {
   .popup-with-form__invalid-email-message {
-    top: 49px;
+    top: 54px;
   }
+
+  .popup-with-form__email-taken-message {
+    top: 270px;
+}
 }

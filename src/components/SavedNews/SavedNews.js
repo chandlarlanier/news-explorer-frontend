@@ -1,3 +1,4 @@
+import "./SavedNews.css";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import Footer from "../Footer/Footer";
@@ -11,20 +12,23 @@ function SavedNews({ isLoggedIn, openPopup, handleLogout }) {
   };
 
   return (
-    <div className="saved-news">
+    <section className="saved-news">
       <SavedNewsHeader
         isLoggedIn={isLoggedIn}
         openPopup={openPopup}
         handleLogout={handleLogout}
       />
-      {savedArticles.length > 0 && (
-        <NewsCardList
-          currentPage="saved-news"
-          content={reverseArray(savedArticles)}
-        />
-      )}
+      <div className="saved-news__container">
+        {savedArticles.length > 0 && (
+          <NewsCardList
+            currentPage="saved-news"
+            content={reverseArray(savedArticles)}
+            openPopup={openPopup}
+          />
+        )}
+      </div>
       <Footer />
-    </div>
+    </section>
   );
 }
 

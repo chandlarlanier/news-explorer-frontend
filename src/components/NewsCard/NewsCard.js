@@ -4,38 +4,92 @@ import deleteIconGray from "../../images/delete-icon-gray.svg";
 import saveIconGray from "../../images/save-icon-gray.svg";
 import saveIconBlack from "../../images/save-icon-black.svg";
 import saveIconFill from "../../images/save-icon-fill.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSavedArticles } from "../../contexts/SavedArticlesContext";
+import { saveArticle, unsaveArticle } from "../../utils/MainApi";
 
-function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
+function NewsCard({
+  currentPage,
+  isLoggedIn,
+  cardInfo,
+  latestKeyword,
+  openPopup,
+}) {
   const [deleteHoverActive, setDeleteHoverActive] = useState(false);
   const [saveHoverActive, setSaveHoverActive] = useState(false);
-  const { savedArticles, saveArticle, removeArticle } = useSavedArticles();
+  const [articleId, setArticleId] = useState("");
+  const { savedArticles, addArticle, removeArticle } = useSavedArticles();
+
+  useEffect(() => {
+    if (
+      savedArticles.some((article) => {
+        return (
+          (article.date === cardInfo.publishedAt) ||
+          (article.date === cardInfo.date)
+        );
+      })
+    ) {
+      savedArticles.forEach((savedArticle) => {
+        if (
+          (savedArticle.date === cardInfo.publishedAt) ||
+          (savedArticle.date === cardInfo.date)
+        ) {
+          const tempId = savedArticle._id;
+          setArticleId(tempId);
+        }
+      });
+    } else {
+      setArticleId("");
+    }
+  }, [savedArticles]);
+
+  const openSignUpPopup = () => {
+    openPopup("sign-up");
+  };
 
   const handleClickSave = () => {
+    // if no user is logged in, open sign up popup
+    if (!isLoggedIn) {
+      openPopup("sign-up");
+      return;
+    }
+
+    // if article is already saved, remove it from saved articles context and delete from database
     if (
-      savedArticles.some(
-        (article) => article.publishedAt == cardInfo.publishedAt
-      )
+      savedArticles.some((article) => article.date === cardInfo.publishedAt)
     ) {
-      removeArticle(cardInfo);
+      return handleClickDelete();
+
+      // if card has not already been saved, add it to saved cards context and save to database
     } else {
       const card = {
         keyword: latestKeyword,
-        publishedAt: cardInfo.publishedAt,
-        urlToImage: cardInfo.urlToImage,
+        date: cardInfo.publishedAt,
+        image: cardInfo.urlToImage,
         title: cardInfo.title,
-        content: cardInfo.content,
-        source: {
-          name: cardInfo.source.name,
-        },
+        text: cardInfo.content,
+        source: cardInfo.source,
+        link: cardInfo.url,
       };
-      saveArticle(card);
+
+      return saveArticle(card, localStorage.getItem("jwt"))
+        .then((res) => {
+          addArticle(res);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 
   const handleClickDelete = () => {
-    removeArticle(cardInfo);
+    return unsaveArticle(articleId, localStorage.getItem("jwt"))
+      .then(() => {
+        removeArticle(cardInfo);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const formatDate = (date) => {
@@ -67,7 +121,7 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
       {/* Displays when user is logged in and on saved news page */}
       {currentPage === "saved-news" && (
         <div className="news-card__keyword-container">
-          <p>
+          <p className="news-card__keyword">
             {cardInfo.keyword.charAt(0).toUpperCase() +
               cardInfo.keyword.slice(1).toLowerCase()}
           </p>
@@ -88,7 +142,10 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
           onClick={handleClickDelete}
         >
           {" "}
-          <img src={deleteHoverActive ? deleteIconBlack : deleteIconGray} />
+          <img
+            src={deleteHoverActive ? deleteIconBlack : deleteIconGray}
+            alt="Delete"
+          />
         </button>
       )}
 
@@ -104,6 +161,7 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
           className="news-card__save-button"
           onMouseEnter={() => setSaveHoverActive(true)}
           onMouseLeave={() => setSaveHoverActive(false)}
+          onClick={openSignUpPopup}
         >
           <img
             src={saveHoverActive ? saveIconBlack : saveIconGray}
@@ -122,9 +180,7 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
         >
           <img
             src={
-              savedArticles.some(
-                (article) => article.publishedAt == cardInfo.publishedAt
-              )
+              articleId
                 ? saveIconFill
                 : saveHoverActive
                 ? saveIconBlack
@@ -138,17 +194,19 @@ function NewsCard({ currentPage, isLoggedIn, cardInfo, latestKeyword }) {
       <div className="news-card__image-container">
         <img
           className="news-card__image"
-          src={cardInfo.urlToImage}
+          src={cardInfo.urlToImage || cardInfo.image}
           alt="News graphic"
         />
       </div>
       <div className="news-card__info">
-        <p className="news-card__date">{formatDate(cardInfo.publishedAt)}</p>
-        <h3 className="news-card__title">{cardInfo.title}</h3>
-        <p className="news-card__article">{cardInfo.content}</p>
-        <p className="news-card__source">
-          {cardInfo.source.name.toUpperCase()}
+        <p className="news-card__date">
+          {formatDate(cardInfo.publishedAt || cardInfo.date)}
         </p>
+        <h3 className="news-card__title">{cardInfo.title}</h3>
+        <p className="news-card__article">
+          {cardInfo.content || cardInfo.text}
+        </p>
+        <p className="news-card__source">{cardInfo.source.toUpperCase()}</p>
       </div>
     </div>
   );

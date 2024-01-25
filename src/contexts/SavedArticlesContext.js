@@ -9,20 +9,22 @@ export const useSavedArticles = () => {
 export const SavedArticlesProvider = ({ children }) => {
   const [savedArticles, setSavedArticles] = useState([]);
 
-  const saveArticle = (article) => {
+  const addArticle = (article) => {
     setSavedArticles([...savedArticles, article]);
   };
 
   const removeArticle = (cardInfo) => {
+    const date = cardInfo.publishedAt || cardInfo.date;
+
     const updatedArticles = savedArticles.filter(
-      (article) => article.publishedAt !== cardInfo.publishedAt
+      (article) => article.date !== date
     );
     setSavedArticles(updatedArticles);
   };
 
   return (
     <SavedArticlesContext.Provider
-      value={{ savedArticles, saveArticle, removeArticle }}
+      value={{ savedArticles, addArticle, removeArticle, setSavedArticles }}
     >
       {children}
     </SavedArticlesContext.Provider>

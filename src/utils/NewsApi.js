@@ -1,4 +1,8 @@
-const baseUrl = "https://newsapi.org/v2/everything?";
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://nomoreparties.co/news/v2/everything?"
+    : "https://newsapi.org/v2/everything?";
+
 const apiKey = "aa9dda217c3d4c599ffd767ddc3aa4c8";
 
 const currentDate = new Date();
