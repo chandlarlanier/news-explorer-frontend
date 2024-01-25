@@ -1,6 +1,6 @@
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://nomoreparties.co/news/v2/top-headlines?country=us&"
+    ? "https://nomoreparties.co/news/v2/everything?"
     : "https://newsapi.org/v2/everything?";
 
 const apiKey = "aa9dda217c3d4c599ffd767ddc3aa4c8";

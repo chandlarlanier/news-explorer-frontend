@@ -31,6 +31,7 @@ function SignInPopup({ closePopup, openPopup, handleLogin, setToken }) {
     if (formIsValid) {
       signIn({ email: formData.email, password: formData.password })
         .then((res) => {
+          debugger;
           addCurrentUser(res.user);
           localStorage.setItem("jwt", res.token);
           setToken(res.token);
